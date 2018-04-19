@@ -25,6 +25,7 @@ namespace Config {
 	public const string API_VERSION;
 	[CCode (cheader_filename = "version.h")]
 	public const string BUILD_VERSION;
+	public const string GETTEXT_PACKAGE;
 	public const string PACKAGE_DATADIR;
 	public const string PACKAGE_SUFFIX;
 }

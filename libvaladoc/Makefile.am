@@ -3,6 +3,7 @@ include $(top_srcdir)/Makefile.common
 NULL =
 
 AM_CFLAGS = \
+	-include config.h \
 	-DPACKAGE_ICONDIR=\"$(datadir)/valadoc/icons/\" \
 	-DPACKAGE_DATADIR=\"$(libdir)/valadoc\" \
 	-DPACKAGE_VERSION=\"$(VERSION)\" \

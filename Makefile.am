@@ -15,6 +15,7 @@ SUBDIRS = \
 	vapigen \
 	libvaladoc \
 	valadoc \
+	po \
 	$(NULL)
 
 if ENABLE_UNVERSIONED
