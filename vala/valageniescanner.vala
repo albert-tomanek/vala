@@ -136,25 +136,25 @@ public class Vala.Genie.Scanner {
 					switch (current[0]) {
 					case 'i':
 						if (fl_i) {
-							Report.error (get_source_reference (token_length_in_chars), "modifier 'i' used more than once");
+							Report.error (get_source_reference (token_length_in_chars), _("modifier 'i' used more than once"));
 						}
 						fl_i = true;
 						break;
 					case 's':
 						if (fl_s) {
-							Report.error (get_source_reference (token_length_in_chars), "modifier 's' used more than once");
+							Report.error (get_source_reference (token_length_in_chars), _("modifier 's' used more than once"));
 						}
 						fl_s = true;
 						break;
 					case 'm':
 						if (fl_m) {
-							Report.error (get_source_reference (token_length_in_chars), "modifier 'm' used more than once");
+							Report.error (get_source_reference (token_length_in_chars), _("modifier 'm' used more than once"));
 						}
 						fl_m = true;
 						break;
 					case 'x':
 						if (fl_x) {
-							Report.error (get_source_reference (token_length_in_chars), "modifier 'x' used more than once");
+							Report.error (get_source_reference (token_length_in_chars), _("modifier 'x' used more than once"));
 						}
 						fl_x = true;
 						break;
@@ -237,7 +237,7 @@ public class Vala.Genie.Scanner {
 							}
 							break;
 						default:
-							Report.error (get_source_reference (token_length_in_chars), "invalid escape sequence");
+							Report.error (get_source_reference (token_length_in_chars), _("invalid escape sequence"));
 							break;
 						}
 					} else if (current[0] == '\n') {
@@ -249,12 +249,12 @@ public class Vala.Genie.Scanner {
 							token_length_in_chars++;
 						} else {
 							current++;
-							Report.error (get_source_reference (token_length_in_chars), "invalid UTF-8 character");
+							Report.error (get_source_reference (token_length_in_chars), _("invalid UTF-8 character"));
 						}
 					}
 				}
 				if (current >= end || current[0] == '\n') {
-					Report.error (get_source_reference (token_length_in_chars), "syntax error, expected \"");
+					Report.error (get_source_reference (token_length_in_chars), _("syntax error, expected \""));
 					state_stack.length--;
 					return read_token (out token_begin, out token_end);
 				}
@@ -697,7 +697,7 @@ public class Vala.Genie.Scanner {
 					current++;
 					state_stack += State.TEMPLATE_PART;
 				} else {
-					Report.error (get_source_reference (1), "unexpected character");
+					Report.error (get_source_reference (1), _("unexpected character"));
 					return read_template_token (out token_begin, out token_end);
 				}
 				break;
@@ -735,7 +735,7 @@ public class Vala.Genie.Scanner {
 							}
 							break;
 						default:
-							Report.error (get_source_reference (token_length_in_chars), "invalid escape sequence");
+							Report.error (get_source_reference (token_length_in_chars), _("invalid escape sequence"));
 							break;
 						}
 					} else if (current[0] == '\n') {
@@ -750,12 +750,12 @@ public class Vala.Genie.Scanner {
 							token_length_in_chars++;
 						} else {
 							current++;
-							Report.error (get_source_reference (token_length_in_chars), "invalid UTF-8 character");
+							Report.error (get_source_reference (token_length_in_chars), _("invalid UTF-8 character"));
 						}
 					}
 				}
 				if (current >= end) {
-					Report.error (get_source_reference (token_length_in_chars), "syntax error, expected \"");
+					Report.error (get_source_reference (token_length_in_chars), _("syntax error, expected \""));
 					state_stack.length--;
 					return read_token (out token_begin, out token_end);
 				}
@@ -1244,14 +1244,14 @@ public class Vala.Genie.Scanner {
 								current += u.to_utf8 (null);
 								token_length_in_chars++;
 							} else {
-								Report.error (get_source_reference (token_length_in_chars), "invalid UTF-8 character");
+								Report.error (get_source_reference (token_length_in_chars), _("invalid UTF-8 character"));
 							}
 						}
 					}
 					if (current[0] == '"' && current[1] == '"' && current[2] == '"') {
 						current += 3;
 					} else {
-						Report.error (get_source_reference (token_length_in_chars), "syntax error, expected \"\"\"");
+						Report.error (get_source_reference (token_length_in_chars), _("syntax error, expected \"\"\""));
 					}
 					break;
 				} else {
@@ -1290,7 +1290,7 @@ public class Vala.Genie.Scanner {
 							}
 							break;
 						default:
-							Report.error (get_source_reference (token_length_in_chars), "invalid escape sequence");
+							Report.error (get_source_reference (token_length_in_chars), _("invalid escape sequence"));
 							break;
 						}
 					} else if (current[0] == '\n') {
@@ -1305,28 +1305,28 @@ public class Vala.Genie.Scanner {
 							token_length_in_chars++;
 						} else {
 							current++;
-							Report.error (get_source_reference (token_length_in_chars), "invalid UTF-8 character");
+							Report.error (get_source_reference (token_length_in_chars), _("invalid UTF-8 character"));
 						}
 					}
 					if (current < end && begin[0] == '\'' && current[0] != '\'') {
 						// multiple characters in single character literal
-						Report.error (get_source_reference (token_length_in_chars), "invalid character literal");
+						Report.error (get_source_reference (token_length_in_chars), _("invalid character literal"));
 					}
 				}
 				if (current < end) {
 					current++;
 				} else {
-					Report.error (get_source_reference (token_length_in_chars), "syntax error, expected %c".printf (begin[0]));
+					Report.error (get_source_reference (token_length_in_chars), _("syntax error, expected %c").printf (begin[0]));
 				}
 				break;
 			default:
 				unichar u = ((string) current).get_char_validated ((long) (end - current));
 				if (u != (unichar) (-1)) {
 					current += u.to_utf8 (null);
-					Report.error (get_source_reference (0), "syntax error, unexpected character");
+					Report.error (get_source_reference (0), _("syntax error, unexpected character"));
 				} else {
 					current++;
-					Report.error (get_source_reference (0), "invalid UTF-8 character");
+					Report.error (get_source_reference (0), _("invalid UTF-8 character"));
 				}
 				column++;
 				return read_token (out token_begin, out token_end);
@@ -1490,7 +1490,7 @@ public class Vala.Genie.Scanner {
 				column++;
 			}
 			if (current == end - 1) {
-				Report.error (get_source_reference (0), "syntax error, expected */");
+				Report.error (get_source_reference (0), _("syntax error, expected */"));
 				return true;
 			}
 
@@ -1603,7 +1603,7 @@ public class Vala.Genie.Scanner {
 		} else if (len == 5 && matches (begin, "endif")) {
 			parse_pp_endif ();
 		} else {
-			Report.error (get_source_reference (-len, len), "syntax error, invalid preprocessing directive");
+			Report.error (get_source_reference (-len, len), _("syntax error, invalid preprocessing directive"));
 		}
 
 		if (conditional_stack.length > 0
@@ -1633,7 +1633,7 @@ public class Vala.Genie.Scanner {
 	void pp_eol () {
 		pp_space ();
 		if (current >= end || current[0] != '\n') {
-			Report.error (get_source_reference (0), "syntax error, expected newline");
+			Report.error (get_source_reference (0), _("syntax error, expected newline"));
 		}
 	}
 
@@ -1663,7 +1663,7 @@ public class Vala.Genie.Scanner {
 		pp_eol ();
 
 		if (conditional_stack.length == 0 || conditional_stack[conditional_stack.length - 1].else_found) {
-			Report.error (get_source_reference (0), "syntax error, unexpected #elif");
+			Report.error (get_source_reference (0), _("syntax error, unexpected #elif"));
 			return;
 		}
 
@@ -1682,7 +1682,7 @@ public class Vala.Genie.Scanner {
 		pp_eol ();
 
 		if (conditional_stack.length == 0 || conditional_stack[conditional_stack.length - 1].else_found) {
-			Report.error (get_source_reference (0), "syntax error, unexpected #else");
+			Report.error (get_source_reference (0), _("syntax error, unexpected #else"));
 			return;
 		}
 
@@ -1701,7 +1701,7 @@ public class Vala.Genie.Scanner {
 		pp_eol ();
 
 		if (conditional_stack.length == 0) {
-			Report.error (get_source_reference (0), "syntax error, unexpected #endif");
+			Report.error (get_source_reference (0), _("syntax error, unexpected #endif"));
 			return;
 		}
 
@@ -1717,7 +1717,7 @@ public class Vala.Genie.Scanner {
 		}
 
 		if (len == 0) {
-			Report.error (get_source_reference (0), "syntax error, expected identifier");
+			Report.error (get_source_reference (0), _("syntax error, expected identifier"));
 			return false;
 		}
 
@@ -1736,7 +1736,7 @@ public class Vala.Genie.Scanner {
 
 	bool parse_pp_primary_expression () {
 		if (current >= end) {
-			Report.error (get_source_reference (0), "syntax error, expected identifier");
+			Report.error (get_source_reference (0), _("syntax error, expected identifier"));
 		} else if (is_ident_char (current[0])) {
 			return parse_pp_symbol ();
 		} else if (current[0] == '(') {
@@ -1749,11 +1749,11 @@ public class Vala.Genie.Scanner {
 				current++;
 				column++;
 			} else {
-				Report.error (get_source_reference (0), "syntax error, expected `)'");
+				Report.error (get_source_reference (0), _("syntax error, expected `)'"));
 			}
 			return result;
 		} else {
-			Report.error (get_source_reference (0), "syntax error, expected identifier");
+			Report.error (get_source_reference (0), _("syntax error, expected identifier"));
 		}
 		return false;
 	}

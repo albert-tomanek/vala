@@ -160,7 +160,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 	void report_parse_error (ParseError e) {
 		var begin = get_location ();
 		next ();
-		Report.error (get_src (begin), "syntax error, " + e.message);
+		Report.error (get_src (begin), _("syntax error, ") + e.message);
 	}
 
 	inline bool expect (TokenType type) throws ParseError {
@@ -369,7 +369,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 			// FIXME validate and unescape here and just pass unichar to CharacterLiteral
 			var lit = new CharacterLiteral (get_last_string (), get_src (begin));
 			if (lit.error) {
-				Report.error (lit.source_reference, "invalid character literal");
+				Report.error (lit.source_reference, _("invalid character literal"));
 			}
 			return lit;
 		case TokenType.REGEX_LITERAL:
@@ -510,7 +510,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 				value_owned = false;
 			} else if (accept (TokenType.WEAK)) {
 				if (!can_weak_ref && !context.deprecated) {
-					Report.warning (get_src (begin), "deprecated syntax, use `unowned` modifier");
+					Report.warning (get_src (begin), _("deprecated syntax, use `unowned` modifier"));
 				}
 				value_owned = false;
 			}
@@ -1181,7 +1181,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		var call = expr as MethodCall;
 		var object_creation = expr as ObjectCreationExpression;
 		if (call == null && object_creation == null) {
-			Report.error (expr.source_reference, "syntax error, expected method call");
+			Report.error (expr.source_reference, _("syntax error, expected method call"));
 			throw new ParseError.SYNTAX ("expected method call");
 		}
 
@@ -1237,7 +1237,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		switch (current ()) {
 		case TokenType.HASH:
 			if (!context.deprecated) {
-				Report.warning (get_src (begin), "deprecated syntax, use `(owned)` cast");
+				Report.warning (get_src (begin), _("deprecated syntax, use `(owned)` cast"));
 			}
 			next ();
 			var op = parse_unary_expression ();
@@ -1925,7 +1925,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		if (!accept (TokenType.DEDENT)) {
 			// only report error if it's not a secondary error
 			if (context.report.get_errors () == 0) {
-				Report.error (get_current_src (), "tab indentation is incorrect");
+				Report.error (get_current_src (), _("tab indentation is incorrect"));
 			}
 		}
 
@@ -2402,7 +2402,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		if (attributes != null) {
 			foreach (Attribute attr in (List<Attribute>) attributes) {
 				if (node.get_attribute (attr.name) != null) {
-					Report.error (attr.source_reference, "duplicate attribute `%s`".printf (attr.name));
+					Report.error (attr.source_reference, _("duplicate attribute `%s`").printf (attr.name));
 				}
 				node.attributes.append (attr);
 			}
@@ -2503,7 +2503,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 			if (!accept (TokenType.DEDENT)) {
 				// only report error if it's not a secondary error
 				if (context.report.get_errors () == 0) {
-					Report.error (get_current_src (), "expected dedent");
+					Report.error (get_current_src (), _("expected dedent"));
 				}
 			}
 		}
@@ -2611,7 +2611,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		} else if (sym is Constant) {
 			ns.add_constant ((Constant) sym);
 		} else {
-			Report.error (sym.source_reference, "unexpected declaration in namespace");
+			Report.error (sym.source_reference, _("unexpected declaration in namespace"));
 		}
 	}
 
@@ -2745,17 +2745,17 @@ public class Vala.Genie.Parser : CodeVisitor {
 			var c = (Constructor) sym;
 			if (c.binding == MemberBinding.INSTANCE) {
 				if (cl.constructor != null) {
-					Report.error (c.source_reference, "class already contains a constructor");
+					Report.error (c.source_reference, _("class already contains a constructor"));
 				}
 				cl.constructor = c;
 			} else if (c.binding == MemberBinding.CLASS) {
 				if (cl.class_constructor != null) {
-					Report.error (c.source_reference, "class already contains a class constructor");
+					Report.error (c.source_reference, _("class already contains a class constructor"));
 				}
 				cl.class_constructor = c;
 			} else {
 				if (cl.static_constructor != null) {
-					Report.error (c.source_reference, "class already contains a static constructor");
+					Report.error (c.source_reference, _("class already contains a static constructor"));
 				}
 				cl.static_constructor = c;
 			}
@@ -2764,23 +2764,23 @@ public class Vala.Genie.Parser : CodeVisitor {
 			var d = (Destructor) sym;
 			if (d.binding == MemberBinding.STATIC) {
 				if (cl.static_destructor != null) {
-					Report.error (d.source_reference, "class already contains a static destructor");
+					Report.error (d.source_reference, _("class already contains a static destructor"));
 				}
 				cl.static_destructor = (Destructor) d;
 			} else if (d.binding == MemberBinding.CLASS) {
 				if (cl.class_destructor != null) {
-					Report.error (d.source_reference, "class already contains a class destructor");
+					Report.error (d.source_reference, _("class already contains a class destructor"));
 				}
 				cl.class_destructor = (Destructor) d;
 			} else {
 				if (cl.destructor != null) {
-					Report.error (d.source_reference, "class already contains a destructor");
+					Report.error (d.source_reference, _("class already contains a destructor"));
 				}
 				cl.destructor = (Destructor) d;
 			}
 
 		} else {
-			Report.error (sym.source_reference, "unexpected declaration in class");
+			Report.error (sym.source_reference, _("unexpected declaration in class"));
 		}
 	}
 
@@ -2822,7 +2822,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		set_attributes (c, attrs);
 
 		if (ModifierFlags.STATIC in flags) {
-			Report.warning (c.source_reference, "the modifier `static' is not applicable to constants");
+			Report.warning (c.source_reference, _("the modifier `static' is not applicable to constants"));
 		}
 
 		return c;
@@ -2842,7 +2842,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		var f = new Field (id, type, null, get_src (begin), comment);
 
 		if (ModifierFlags.ABSTRACT in flags || ModifierFlags.VIRTUAL in flags || ModifierFlags.OVERRIDE in flags) {
-			Report.error (f.source_reference, "abstract, virtual, and override modifiers are not applicable to fields");
+			Report.error (f.source_reference, _("abstract, virtual, and override modifiers are not applicable to fields"));
 		}
 
 		if (ModifierFlags.PRIVATE in flags) {
@@ -3125,7 +3125,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		}
 
 		if (ModifierFlags.ASYNC in flags) {
-			Report.error (prop.source_reference, "async properties are not supported yet");
+			Report.error (prop.source_reference, _("async properties are not supported yet"));
 		}
 
 		if (accept (TokenType.ASSIGN)) {
@@ -3345,7 +3345,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		} else if (sym is Property) {
 			st.add_property ((Property) sym);
 		} else {
-			Report.error (sym.source_reference, "unexpected declaration in struct");
+			Report.error (sym.source_reference, _("unexpected declaration in struct"));
 		}
 	}
 
@@ -3422,7 +3422,7 @@ public class Vala.Genie.Parser : CodeVisitor {
 		} else if (sym is Property) {
 			iface.add_property ((Property) sym);
 		} else {
-			Report.error (sym.source_reference, "unexpected declaration in interface");
+			Report.error (sym.source_reference, _("unexpected declaration in interface"));
 		}
 	}
 

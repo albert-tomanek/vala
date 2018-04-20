@@ -57,7 +57,7 @@ public class Vala.ErrorDomain : TypeSymbol {
 	 */
 	public override void add_method (Method m) {
 		if (m is CreationMethod) {
-			Report.error (m.source_reference, "construction methods may only be declared within classes and structs");
+			Report.error (m.source_reference, _("construction methods may only be declared within classes and structs"));
 
 			m.error = true;
 			return;

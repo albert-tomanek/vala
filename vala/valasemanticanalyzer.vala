@@ -362,7 +362,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 		} else if (sym is ErrorCode) {
 			type = new ErrorType ((ErrorDomain) sym.parent_symbol, (ErrorCode) sym);
 		} else {
-			Report.error (null, "internal error: `%s' is not a supported type".printf (sym.get_full_name ()));
+			Report.error (null, _("internal error: `%s' is not a supported type").printf (sym.get_full_name ()));
 			return new InvalidType ();
 		}
 
@@ -432,9 +432,9 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 					expr.error = true;
 					var m = mtype as MethodType;
 					if (m != null) {
-						Report.error (expr.source_reference, "%d missing arguments for `%s'".printf (m.get_parameters ().size - args.size, m.to_prototype_string ()));
+						Report.error (expr.source_reference, _("%d missing arguments for `%s'").printf (m.get_parameters ().size - args.size, m.to_prototype_string ()));
 					} else {
-						Report.error (expr.source_reference, "Too few arguments, method `%s' does not take %d arguments".printf (mtype.to_string (), args.size));
+						Report.error (expr.source_reference, _("Too few arguments, method `%s' does not take %d arguments").printf (mtype.to_string (), args.size));
 					}
 					return false;
 				} else {
@@ -469,9 +469,9 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 			expr.error = true;
 			var m = mtype as MethodType;
 			if (m != null) {
-				Report.error (expr.source_reference, "%d extra arguments for `%s'".printf (args.size - m.get_parameters ().size, m.to_prototype_string ()));
+				Report.error (expr.source_reference, _("%d extra arguments for `%s'").printf (args.size - m.get_parameters ().size, m.to_prototype_string ()));
 			} else {
-				Report.error (expr.source_reference, "Too many arguments, method `%s' does not take %d arguments".printf (mtype.to_string (), args.size));
+				Report.error (expr.source_reference, _("Too many arguments, method `%s' does not take %d arguments").printf (mtype.to_string (), args.size));
 			}
 			return false;
 		}
@@ -491,12 +491,12 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 			// ignore inner error
 			return false;
 		} else if (arg is NamedArgument) {
-			Report.error (arg.source_reference, "Named arguments are not supported yet");
+			Report.error (arg.source_reference, _("Named arguments are not supported yet"));
 			return false;
 		} else if (arg.value_type == null) {
 			// disallow untyped arguments except for type inference of callbacks
 			if (!(arg.target_type is DelegateType) || !(arg.symbol_reference is Method)) {
-				Report.error (arg.source_reference, "Invalid type for argument %d".printf (i + 1));
+				Report.error (arg.source_reference, _("Invalid type for argument %d").printf (i + 1));
 				return false;
 			}
 		} else {
@@ -515,19 +515,19 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 
 			if (arg_type == 0) {
 				if (direction == ParameterDirection.REF) {
-					Report.error (arg.source_reference, "Argument %d: Cannot pass null to reference parameter".printf (i + 1));
+					Report.error (arg.source_reference, _("Argument %d: Cannot pass null to reference parameter").printf (i + 1));
 					return false;
 				} else if (direction != ParameterDirection.OUT && !arg.target_type.nullable) {
-					Report.warning (arg.source_reference, "Argument %d: Cannot pass null to non-null parameter type".printf (i + 1));
+					Report.warning (arg.source_reference, _("Argument %d: Cannot pass null to non-null parameter type").printf (i + 1));
 				}
 			} else if (arg_type == 1) {
 				if (direction != ParameterDirection.IN) {
-					Report.error (arg.source_reference, "Argument %d: Cannot pass value to reference or output parameter".printf (i + 1));
+					Report.error (arg.source_reference, _("Argument %d: Cannot pass value to reference or output parameter").printf (i + 1));
 					return false;
 				}
 			} else if (arg_type == 2) {
 				if (direction != ParameterDirection.REF) {
-					Report.error (arg.source_reference, "Argument %d: Cannot pass ref argument to non-reference parameter".printf (i + 1));
+					Report.error (arg.source_reference, _("Argument %d: Cannot pass ref argument to non-reference parameter").printf (i + 1));
 					return false;
 				}
 
@@ -535,7 +535,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 				if (arg.target_type.is_disposable ()) {
 					if (!(arg.value_type is PointerType) && !arg.value_type.value_owned) {
 						/* variable doesn't own the value */
-						Report.error (arg.source_reference, "Argument %d: Cannot pass unowned ref argument to owned reference parameter".printf (i + 1));
+						Report.error (arg.source_reference, _("Argument %d: Cannot pass unowned ref argument to owned reference parameter").printf (i + 1));
 						return false;
 					}
 				}
@@ -544,13 +544,13 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 				if (arg.value_type.is_disposable ()) {
 					if (!arg.target_type.value_owned) {
 						/* parameter doesn't own the value */
-						Report.error (arg.source_reference, "Argument %d: Cannot pass owned ref argument to unowned reference parameter".printf (i + 1));
+						Report.error (arg.source_reference, _("Argument %d: Cannot pass owned ref argument to unowned reference parameter").printf (i + 1));
 						return false;
 					}
 				}
 			} else if (arg_type == 3) {
 				if (direction != ParameterDirection.OUT) {
-					Report.error (arg.source_reference, "Argument %d: Cannot pass out argument to non-output parameter".printf (i + 1));
+					Report.error (arg.source_reference, _("Argument %d: Cannot pass out argument to non-output parameter").printf (i + 1));
 					return false;
 				}
 
@@ -558,7 +558,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 				if (arg.target_type.is_disposable ()) {
 					if (!(arg.value_type is PointerType) && !arg.value_type.value_owned) {
 						/* variable doesn't own the value */
-						Report.error (arg.source_reference, "Invalid assignment from owned expression to unowned variable");
+						Report.error (arg.source_reference, _("Invalid assignment from owned expression to unowned variable"));
 						return false;
 					}
 				}
@@ -568,12 +568,12 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 		if (arg.target_type != null) {
 			if ((direction == ParameterDirection.IN || direction == ParameterDirection.REF)
 			    && !arg.value_type.compatible (arg.target_type)) {
-				Report.error (arg.source_reference, "Argument %d: Cannot convert from `%s' to `%s'".printf (i + 1, arg.value_type.to_prototype_string (), arg.target_type.to_prototype_string ()));
+				Report.error (arg.source_reference, _("Argument %d: Cannot convert from `%s' to `%s'").printf (i + 1, arg.value_type.to_prototype_string (), arg.target_type.to_prototype_string ()));
 				return false;
 			} else if ((direction == ParameterDirection.REF || direction == ParameterDirection.OUT)
 		                && !arg.target_type.compatible (arg.value_type)
 		                && !(arg is NullLiteral)) {
-				Report.error (arg.source_reference, "Argument %d: Cannot convert from `%s' to `%s'".printf (i + 1, arg.target_type.to_prototype_string (), arg.value_type.to_prototype_string ()));
+				Report.error (arg.source_reference, _("Argument %d: Cannot convert from `%s' to `%s'").printf (i + 1, arg.target_type.to_prototype_string (), arg.value_type.to_prototype_string ()));
 				return false;
 			}
 		}
@@ -583,7 +583,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 			// allow prototype access if target type is delegate without target
 			var deleg_type = arg.target_type as DelegateType;
 			if (deleg_type == null || deleg_type.delegate_symbol.has_target) {
-				Report.error (arg.source_reference, "Access to instance member `%s' denied".printf (arg.symbol_reference.get_full_name ()));
+				Report.error (arg.source_reference, _("Access to instance member `%s' denied").printf (arg.symbol_reference.get_full_name ()));
 				return false;
 			}
 		}
@@ -598,17 +598,17 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 				return false;
 			} else if (arg.value_type is SignalType) {
 				arg.error = true;
-				Report.error (arg.source_reference, "Cannot pass signals as arguments");
+				Report.error (arg.source_reference, _("Cannot pass signals as arguments"));
 				return false;
 			} else if (arg.value_type == null) {
 				// disallow untyped arguments except for type inference of callbacks
 				if (!(arg.symbol_reference is Method)) {
-					Report.error (source_reference, "Invalid type for argument %d".printf (i + 1));
+					Report.error (source_reference, _("Invalid type for argument %d").printf (i + 1));
 					return false;
 				}
 			} else if (arg.target_type != null && !arg.value_type.compatible (arg.target_type)) {
 				// target_type known for printf arguments
-				Report.error (arg.source_reference, "Argument %d: Cannot convert from `%s' to `%s'".printf (i + 1, arg.value_type.to_string (), arg.target_type.to_string ()));
+				Report.error (arg.source_reference, _("Argument %d: Cannot convert from `%s' to `%s'").printf (i + 1, arg.value_type.to_string (), arg.target_type.to_string ()));
 				return false;
 			}
 
@@ -725,13 +725,13 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 
 					arg.target_type = param_type;
 				} else {
-					Report.error (source_reference, "Too few arguments for specified format");
+					Report.error (source_reference, _("Too few arguments for specified format"));
 					return false;
 				}
 			}
 		}
 		if (!unsupported_format && arg_it.next ()) {
-			Report.error (source_reference, "Too many arguments for specified format");
+			Report.error (source_reference, _("Too many arguments for specified format"));
 			return false;
 		}
 
@@ -840,7 +840,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 
 				if (instance_type == null) {
 					CodeNode? reference = get_symbol_for_data_type (derived_instance_type);
-					Report.error ((reference ?? node_reference).source_reference, "The type-parameter `%s' is missing".printf (generic_type.to_string ()));
+					Report.error ((reference ?? node_reference).source_reference, _("The type-parameter `%s' is missing").printf (generic_type.to_string ()));
 					node_reference.error = true;
 					return new InvalidType ();
 				}
@@ -852,7 +852,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 					param_index = instance_type.data_type.get_type_parameter_index (generic_type.type_parameter.name);
 				}
 				if (param_index == -1) {
-					Report.error (node_reference.source_reference, "internal error: unknown type parameter %s".printf (generic_type.type_parameter.name));
+					Report.error (node_reference.source_reference, _("internal error: unknown type parameter %s").printf (generic_type.type_parameter.name));
 					node_reference.error = true;
 					return new InvalidType ();
 				}
@@ -867,7 +867,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 
 			int param_index = m.get_type_parameter_index (generic_type.type_parameter.name);
 			if (param_index == -1) {
-				Report.error (node_reference.source_reference, "internal error: unknown type parameter %s".printf (generic_type.type_parameter.name));
+				Report.error (node_reference.source_reference, _("internal error: unknown type parameter %s").printf (generic_type.type_parameter.name));
 				node_reference.error = true;
 				return new InvalidType ();
 			}
@@ -932,12 +932,12 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 		init.symbol_reference = symbol_lookup_inherited (type.data_type, init.name);
 		if (!(init.symbol_reference is Field || init.symbol_reference is Property)) {
 			init.error = true;
-			Report.error (init.source_reference, "Invalid member `%s' in `%s'".printf (init.name, type.data_type.get_full_name ()));
+			Report.error (init.source_reference, _("Invalid member `%s' in `%s'").printf (init.name, type.data_type.get_full_name ()));
 			return;
 		}
 		if (init.symbol_reference.access != SymbolAccessibility.PUBLIC) {
 			init.error = true;
-			Report.error (init.source_reference, "Access to private member `%s' denied".printf (init.symbol_reference.get_full_name ()));
+			Report.error (init.source_reference, _("Access to private member `%s' denied").printf (init.symbol_reference.get_full_name ()));
 			return;
 		}
 		DataType member_type = null;
@@ -949,7 +949,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 			member_type = prop.property_type;
 			if (prop.set_accessor == null || !prop.set_accessor.writable) {
 				init.error = true;
-				Report.error (init.source_reference, "Property `%s' is read-only".printf (prop.get_full_name ()));
+				Report.error (init.source_reference, _("Property `%s' is read-only").printf (prop.get_full_name ()));
 				return;
 			}
 		}
@@ -961,7 +961,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 
 		if (init.initializer.value_type == null || !init.initializer.value_type.compatible (init.initializer.target_type)) {
 			init.error = true;
-			Report.error (init.source_reference, "Invalid type for member `%s'".printf (init.name));
+			Report.error (init.source_reference, _("Invalid type for member `%s'").printf (init.name));
 			return;
 		}
 	}

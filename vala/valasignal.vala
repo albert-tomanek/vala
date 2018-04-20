@@ -195,7 +195,7 @@ public class Vala.Signal : Symbol, Lockable, Callable {
 
 		foreach (Parameter param in parameters) {
 			if (param.ellipsis) {
-				Report.error  (param.source_reference, "Signals with variable argument lists are not supported");
+				Report.error  (param.source_reference, _("Signals with variable argument lists are not supported"));
 				return false;
 			}
 
@@ -203,7 +203,7 @@ public class Vala.Signal : Symbol, Lockable, Callable {
 		}
 
 		if (!is_virtual && body != null) {
-			Report.error (source_reference, "Only virtual signals can have a default signal handler body");
+			Report.error (source_reference, _("Only virtual signals can have a default signal handler body"));
 		}
 
 
@@ -258,7 +258,7 @@ public class Vala.Signal : Symbol, Lockable, Callable {
 
 
 		if (!external_package && !hides && get_hidden_member () != null) {
-			Report.warning (source_reference, "%s hides inherited signal `%s'. Use the `new' keyword if hiding was intentional".printf (get_full_name (), get_hidden_member ().get_full_name ()));
+			Report.warning (source_reference, _("%s hides inherited signal `%s'. Use the `new' keyword if hiding was intentional").printf (get_full_name (), get_hidden_member ().get_full_name ()));
 		}
 
 		return !error;

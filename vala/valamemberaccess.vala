@@ -222,7 +222,7 @@ public class Vala.MemberAccess : Expression {
 			if (member_name == "this") {
 				if (!context.analyzer.is_in_instance_method ()) {
 					error = true;
-					Report.error (source_reference, "This access invalid outside of instance methods");
+					Report.error (source_reference, _("This access invalid outside of instance methods"));
 					return false;
 				}
 			}
@@ -304,7 +304,7 @@ public class Vala.MemberAccess : Expression {
 					if (local_sym != null) {
 						if (symbol_reference != null && symbol_reference != local_sym) {
 							error = true;
-							Report.error (source_reference, "`%s' is an ambiguous reference between `%s' and `%s'".printf (member_name, symbol_reference.get_full_name (), local_sym.get_full_name ()));
+							Report.error (source_reference, _("`%s' is an ambiguous reference between `%s' and `%s'").printf (member_name, symbol_reference.get_full_name (), local_sym.get_full_name ()));
 							return false;
 						}
 						symbol_reference = local_sym;
@@ -332,7 +332,7 @@ public class Vala.MemberAccess : Expression {
 				var ma = (MemberAccess) inner;
 				if (ma.prototype_access) {
 					error = true;
-					Report.error (source_reference, "Access to instance member `%s' denied".printf (inner.symbol_reference.get_full_name ()));
+					Report.error (source_reference, _("Access to instance member `%s' denied").printf (inner.symbol_reference.get_full_name ()));
 					return false;
 				}
 			}
@@ -473,7 +473,7 @@ public class Vala.MemberAccess : Expression {
 				base_type_name = base_symbol.get_full_name ();
 			}
 
-			Report.error (source_reference, "The name `%s' does not exist in the context of `%s'".printf (member_name, base_type_name));
+			Report.error (source_reference, _("The name `%s' does not exist in the context of `%s'").printf (member_name, base_type_name));
 			return false;
 		}
 
@@ -528,7 +528,7 @@ public class Vala.MemberAccess : Expression {
 
 				if (param.direction != ParameterDirection.IN) {
 					error = true;
-					Report.error (source_reference, "Cannot capture reference or output parameter `%s'".printf (param.get_full_name ()));
+					Report.error (source_reference, _("Cannot capture reference or output parameter `%s'").printf (param.get_full_name ()));
 				}
 			} else {
 				var acc = param.parent_symbol.parent_symbol as PropertyAccessor;
@@ -566,7 +566,7 @@ public class Vala.MemberAccess : Expression {
 			var block = c.parent_symbol as Block;
 			if (block != null && context.analyzer.find_parent_method_or_property_accessor (block) != context.analyzer.current_method_or_property_accessor) {
 				error = true;
-				Report.error (source_reference, "internal error: accessing local constants of outer methods is not supported yet");
+				Report.error (source_reference, _("internal error: accessing local constants of outer methods is not supported yet"));
 				return false;
 			}
 		} else if (member is Method) {
@@ -588,7 +588,7 @@ public class Vala.MemberAccess : Expression {
 				}
 				if (!is_valid_access) {
 					error = true;
-					Report.error (source_reference, "Access to async callback `%s' not allowed in this context".printf (m.get_full_name ()));
+					Report.error (source_reference, _("Access to async callback `%s' not allowed in this context").printf (m.get_full_name ()));
 					return false;
 				}
 
@@ -674,7 +674,7 @@ public class Vala.MemberAccess : Expression {
 			if (lvalue) {
 				if (prop.set_accessor == null) {
 					error = true;
-					Report.error (source_reference, "Property `%s' is read-only".printf (prop.get_full_name ()));
+					Report.error (source_reference, _("Property `%s' is read-only").printf (prop.get_full_name ()));
 					return false;
 				}
 				if (prop.access == SymbolAccessibility.PUBLIC) {
@@ -686,7 +686,7 @@ public class Vala.MemberAccess : Expression {
 			} else {
 				if (prop.get_accessor == null) {
 					error = true;
-					Report.error (source_reference, "Property `%s' is write-only".printf (prop.get_full_name ()));
+					Report.error (source_reference, _("Property `%s' is write-only").printf (prop.get_full_name ()));
 					return false;
 				}
 				if (prop.access == SymbolAccessibility.PUBLIC) {
@@ -732,7 +732,7 @@ public class Vala.MemberAccess : Expression {
 
 			if (!in_subtype) {
 				error = true;
-				Report.error (source_reference, "Access to protected member `%s' denied".printf (member.get_full_name ()));
+				Report.error (source_reference, _("Access to protected member `%s' denied").printf (member.get_full_name ()));
 				return false;
 			}
 		} else if (access == SymbolAccessibility.PRIVATE) {
@@ -748,7 +748,7 @@ public class Vala.MemberAccess : Expression {
 
 			if (!in_target_type) {
 				error = true;
-				Report.error (source_reference, "Access to private member `%s' denied".printf (member.get_full_name ()));
+				Report.error (source_reference, _("Access to private member `%s' denied").printf (member.get_full_name ()));
 				return false;
 			}
 		}
@@ -766,7 +766,7 @@ public class Vala.MemberAccess : Expression {
 			if (object_type != null && object_type.type_symbol.get_type_parameters ().size > 0 &&
 			    instance_type.get_type_arguments ().size == 0) {
 				error = true;
-				Report.error (inner.source_reference, "missing generic type arguments");
+				Report.error (inner.source_reference, _("missing generic type arguments"));
 				return false;
 			}
 		}
@@ -804,14 +804,14 @@ public class Vala.MemberAccess : Expression {
 				if (inner.symbol_reference is Method) {
 					// do not warn when calling .begin or .end on static async method
 				} else {
-					Report.warning (source_reference, "Access to static member `%s' with an instance reference".printf (symbol_reference.get_full_name ()));
+					Report.warning (source_reference, _("Access to static member `%s' with an instance reference").printf (symbol_reference.get_full_name ()));
 				}
 			}
 
 			if (context.experimental_non_null && instance && inner.value_type.nullable &&
 			    !(inner.value_type is PointerType) && !(inner.value_type is GenericType) &&
 				!(inner.value_type is ArrayType)) {
-				Report.error (source_reference, "Access to instance member `%s' from nullable reference denied".printf (symbol_reference.get_full_name ()));
+				Report.error (source_reference, _("Access to instance member `%s' from nullable reference denied").printf (symbol_reference.get_full_name ()));
 			}
 
 			var m = symbol_reference as Method;

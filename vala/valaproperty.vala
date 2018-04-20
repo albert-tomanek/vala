@@ -107,9 +107,9 @@ public class Vala.Property : Symbol, Lockable {
 					bool empty_set = (set_accessor != null && set_accessor.body == null);
 					if (empty_get != empty_set) {
 						if (empty_get) {
-							Report.error (source_reference, "Property getter must have a body");
+							Report.error (source_reference, _("Property getter must have a body"));
 						} else if (empty_set) {
-							Report.error (source_reference, "Property setter must have a body");
+							Report.error (source_reference, _("Property setter must have a body"));
 						}
 						error = true;
 					}
@@ -365,7 +365,7 @@ public class Vala.Property : Symbol, Lockable {
 				string invalid_match;
 				if (!compatible (base_property, out invalid_match)) {
 					error = true;
-					Report.error (source_reference, "Type and/or accessors of overriding property `%s' do not match overridden property `%s': %s.".printf (get_full_name (), base_property.get_full_name (), invalid_match));
+					Report.error (source_reference, _("Type and/or accessors of overriding property `%s' do not match overridden property `%s': %s.").printf (get_full_name (), base_property.get_full_name (), invalid_match));
 					return;
 				}
 
@@ -390,7 +390,7 @@ public class Vala.Property : Symbol, Lockable {
 						string invalid_match;
 						if (!compatible (base_property, out invalid_match)) {
 							error = true;
-							Report.error (source_reference, "Type and/or accessors of overriding property `%s' do not match overridden property `%s': %s.".printf (get_full_name (), base_property.get_full_name (), invalid_match));
+							Report.error (source_reference, _("Type and/or accessors of overriding property `%s' do not match overridden property `%s': %s.").printf (get_full_name (), base_property.get_full_name (), invalid_match));
 							return;
 						}
 
@@ -413,7 +413,7 @@ public class Vala.Property : Symbol, Lockable {
 			var cl = (Class) parent_symbol;
 			if (cl.is_compact && cl.base_class != null) {
 				error = true;
-				Report.error (source_reference, "Abstract and virtual properties may not be declared in derived compact classes");
+				Report.error (source_reference, _("Abstract and virtual properties may not be declared in derived compact classes"));
 				return false;
 			}
 		}
@@ -423,30 +423,30 @@ public class Vala.Property : Symbol, Lockable {
 				var cl = (Class) parent_symbol;
 				if (!cl.is_abstract) {
 					error = true;
-					Report.error (source_reference, "Abstract properties may not be declared in non-abstract classes");
+					Report.error (source_reference, _("Abstract properties may not be declared in non-abstract classes"));
 					return false;
 				}
 			} else if (!(parent_symbol is Interface)) {
 				error = true;
-				Report.error (source_reference, "Abstract properties may not be declared outside of classes and interfaces");
+				Report.error (source_reference, _("Abstract properties may not be declared outside of classes and interfaces"));
 				return false;
 			}
 		} else if (is_virtual) {
 			if (!(parent_symbol is Class) && !(parent_symbol is Interface)) {
 				error = true;
-				Report.error (source_reference, "Virtual properties may not be declared outside of classes and interfaces");
+				Report.error (source_reference, _("Virtual properties may not be declared outside of classes and interfaces"));
 				return false;
 			}
 		} else if (overrides) {
 			if (!(parent_symbol is Class)) {
 				error = true;
-				Report.error (source_reference, "Properties may not be overridden outside of classes");
+				Report.error (source_reference, _("Properties may not be overridden outside of classes"));
 				return false;
 			}
 		} else if (access == SymbolAccessibility.PROTECTED) {
 			if (!(parent_symbol is Class) && !(parent_symbol is Interface)) {
 				error = true;
-				Report.error (source_reference, "Protected properties may not be declared outside of classes and interfaces");
+				Report.error (source_reference, _("Protected properties may not be declared outside of classes and interfaces"));
 				return false;
 			}
 		}
@@ -461,7 +461,7 @@ public class Vala.Property : Symbol, Lockable {
 
 		if (property_type is VoidType) {
 			error = true;
-			Report.error (source_reference, "'void' not supported as property type");
+			Report.error (source_reference, _("'void' not supported as property type"));
 			return false;
 		}
 
@@ -469,7 +469,7 @@ public class Vala.Property : Symbol, Lockable {
 
 		if (get_accessor == null && set_accessor == null) {
 			error = true;
-			Report.error (source_reference, "Property `%s' must have a `get' accessor and/or a `set' mutator".printf (get_full_name ()));
+			Report.error (source_reference, _("Property `%s' must have a `get' accessor and/or a `set' mutator").printf (get_full_name ()));
 			return false;
 		}
 
@@ -482,7 +482,7 @@ public class Vala.Property : Symbol, Lockable {
 
 		if (initializer != null && field == null && !is_abstract) {
 			error = true;
-			Report.error (source_reference, "Property `%s' with custom `get' accessor and/or `set' mutator cannot have `default' value".printf (get_full_name ()));
+			Report.error (source_reference, _("Property `%s' with custom `get' accessor and/or `set' mutator cannot have `default' value").printf (get_full_name ()));
 			return false;
 		}
 
@@ -493,28 +493,28 @@ public class Vala.Property : Symbol, Lockable {
 		// check whether property type is at least as accessible as the property
 		if (!context.analyzer.is_type_accessible (this, property_type)) {
 			error = true;
-			Report.error (source_reference, "property type `%s` is less accessible than property `%s`".printf (property_type.to_string (), get_full_name ()));
+			Report.error (source_reference, _("property type `%s` is less accessible than property `%s`").printf (property_type.to_string (), get_full_name ()));
 		}
 
 		if (overrides && base_property == null) {
-			Report.error (source_reference, "%s: no suitable property found to override".printf (get_full_name ()));
+			Report.error (source_reference, _("%s: no suitable property found to override").printf (get_full_name ()));
 		}
 
 		if (!external_package && !overrides && !hides && get_hidden_member () != null) {
-			Report.warning (source_reference, "%s hides inherited property `%s'. Use the `new' keyword if hiding was intentional".printf (get_full_name (), get_hidden_member ().get_full_name ()));
+			Report.warning (source_reference, _("%s hides inherited property `%s'. Use the `new' keyword if hiding was intentional").printf (get_full_name (), get_hidden_member ().get_full_name ()));
 		}
 
 		/* construct properties must be public */
 		if (set_accessor != null && set_accessor.construction) {
 			if (access != SymbolAccessibility.PUBLIC) {
 				error = true;
-				Report.error (source_reference, "%s: construct properties must be public".printf (get_full_name ()));
+				Report.error (source_reference, _("%s: construct properties must be public").printf (get_full_name ()));
 			}
 		}
 
 		if (initializer != null && !initializer.error && initializer.value_type != null && !(initializer.value_type.compatible (property_type))) {
 			error = true;
-			Report.error (initializer.source_reference, "Expected initializer of type `%s' but got `%s'".printf (property_type.to_string (), initializer.value_type.to_string ()));
+			Report.error (initializer.source_reference, _("Expected initializer of type `%s' but got `%s'").printf (property_type.to_string (), initializer.value_type.to_string ()));
 		}
 
 		context.analyzer.current_source_file = old_source_file;

@@ -106,7 +106,7 @@ public class Vala.PostfixExpression : Expression {
 
 		if (!(inner.value_type is IntegerType) && !(inner.value_type is FloatingType) && !(inner.value_type is PointerType)) {
 			error = true;
-			Report.error (source_reference, "unsupported lvalue in postfix expression");
+			Report.error (source_reference, _("unsupported lvalue in postfix expression"));
 			return false;
 		}
 
@@ -115,7 +115,7 @@ public class Vala.PostfixExpression : Expression {
 
 			if (ma.prototype_access) {
 				error = true;
-				Report.error (source_reference, "Access to instance member `%s' denied".printf (ma.symbol_reference.get_full_name ()));
+				Report.error (source_reference, _("Access to instance member `%s' denied").printf (ma.symbol_reference.get_full_name ()));
 				return false;
 			}
 
@@ -128,12 +128,12 @@ public class Vala.PostfixExpression : Expression {
 			var ea = (ElementAccess) inner;
 			if (!(ea.container.value_type is ArrayType)) {
 				error = true;
-				Report.error (source_reference, "unsupported lvalue in postfix expression");
+				Report.error (source_reference, _("unsupported lvalue in postfix expression"));
 				return false;
 			}
 		} else {
 			error = true;
-			Report.error (source_reference, "unsupported lvalue in postfix expression");
+			Report.error (source_reference, _("unsupported lvalue in postfix expression"));
 			return false;
 		}
 
@@ -145,7 +145,7 @@ public class Vala.PostfixExpression : Expression {
 
 				if (prop.set_accessor == null || !prop.set_accessor.writable) {
 					ma.error = true;
-					Report.error (ma.source_reference, "Property `%s' is read-only".printf (prop.get_full_name ()));
+					Report.error (ma.source_reference, _("Property `%s' is read-only").printf (prop.get_full_name ()));
 					return false;
 				}
 			}

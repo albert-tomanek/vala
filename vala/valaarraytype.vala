@@ -257,7 +257,7 @@ public class Vala.ArrayType : ReferenceType {
 
 	public override bool check (CodeContext context) {
 		if (invalid_syntax) {
-			Report.error (source_reference, "syntax error, no expression allowed between array brackets");
+			Report.error (source_reference, _("syntax error, no expression allowed between array brackets"));
 			error = true;
 			return false;
 		}
@@ -266,7 +266,7 @@ public class Vala.ArrayType : ReferenceType {
 			length.check (context);
 
 			if (length.value_type == null || !(length.value_type is IntegerType) || !length.is_constant ()) {
-				Report.error (length.source_reference, "Expression of constant integer type expected");
+				Report.error (length.source_reference, _("Expression of constant integer type expected"));
 				return false;
 			}
 		}

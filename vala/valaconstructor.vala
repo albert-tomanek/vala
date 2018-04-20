@@ -79,7 +79,7 @@ public class Vala.Constructor : Subroutine {
 
 		foreach (DataType body_error_type in body.get_error_types ()) {
 			if (!((ErrorType) body_error_type).dynamic_error) {
-				Report.warning (body_error_type.source_reference, "unhandled error `%s'".printf (body_error_type.to_string()));
+				Report.warning (body_error_type.source_reference, _("unhandled error `%s'").printf (body_error_type.to_string()));
 			}
 		}
 

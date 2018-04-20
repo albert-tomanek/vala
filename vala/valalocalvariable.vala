@@ -82,7 +82,7 @@ public class Vala.LocalVariable : Variable {
 		if (variable_type != null) {
 			if (variable_type is VoidType) {
 				error = true;
-				Report.error (source_reference, "'void' not supported as variable type");
+				Report.error (source_reference, _("'void' not supported as variable type"));
 				return false;
 			}
 			variable_type.check (context);
@@ -108,17 +108,17 @@ public class Vala.LocalVariable : Variable {
 
 			if (initializer == null) {
 				error = true;
-				Report.error (source_reference, "var declaration not allowed without initializer");
+				Report.error (source_reference, _("var declaration not allowed without initializer"));
 				return false;
 			}
 			if (initializer.value_type == null) {
 				error = true;
-				Report.error (source_reference, "var declaration not allowed with non-typed initializer");
+				Report.error (source_reference, _("var declaration not allowed with non-typed initializer"));
 				return false;
 			}
 			if (initializer.value_type is FieldPrototype) {
 				error = true;
-				Report.error (initializer.source_reference, "Access to instance member `%s' denied".printf (initializer.symbol_reference.get_full_name ()));
+				Report.error (initializer.source_reference, _("Access to instance member `%s' denied").printf (initializer.symbol_reference.get_full_name ()));
 				return false;
 			}
 
@@ -133,7 +133,7 @@ public class Vala.LocalVariable : Variable {
 			if (initializer.value_type == null) {
 				if (!(initializer is MemberAccess) && !(initializer is LambdaExpression)) {
 					error = true;
-					Report.error (source_reference, "expression type not allowed as initializer");
+					Report.error (source_reference, _("expression type not allowed as initializer"));
 					return false;
 				}
 
@@ -146,21 +146,21 @@ public class Vala.LocalVariable : Variable {
 					/* check whether method matches callback type */
 					if (!cb.matches_method (m, dt)) {
 						error = true;
-						Report.error (source_reference, "declaration of method `%s' doesn't match declaration of callback `%s'".printf (m.get_full_name (), cb.get_full_name ()));
+						Report.error (source_reference, _("declaration of method `%s' doesn't match declaration of callback `%s'").printf (m.get_full_name (), cb.get_full_name ()));
 						return false;
 					}
 
 					initializer.value_type = variable_type;
 				} else {
 					error = true;
-					Report.error (source_reference, "expression type not allowed as initializer");
+					Report.error (source_reference, _("expression type not allowed as initializer"));
 					return false;
 				}
 			}
 
 			if (!initializer.value_type.compatible (variable_type)) {
 				error = true;
-				Report.error (source_reference, "Assignment: Cannot convert from `%s' to `%s'".printf (initializer.value_type.to_string (), variable_type.to_string ()));
+				Report.error (source_reference, _("Assignment: Cannot convert from `%s' to `%s'").printf (initializer.value_type.to_string (), variable_type.to_string ()));
 				return false;
 			}
 
@@ -174,7 +174,7 @@ public class Vala.LocalVariable : Variable {
 
 			if (variable_array_type != null && variable_array_type.inline_allocated && initializer.value_type is ArrayType == false) {
 				error = true;
-				Report.error (source_reference, "only arrays are allowed as initializer for arrays with fixed length");
+				Report.error (source_reference, _("only arrays are allowed as initializer for arrays with fixed length"));
 				return false;
 			}
 
@@ -183,7 +183,7 @@ public class Vala.LocalVariable : Variable {
 				if (!(variable_type is PointerType) && !variable_type.value_owned) {
 					/* lhs doesn't own the value */
 					error = true;
-					Report.error (source_reference, "Invalid assignment from owned expression to unowned variable");
+					Report.error (source_reference, _("Invalid assignment from owned expression to unowned variable"));
 					return false;
 				}
 			}

@@ -156,7 +156,7 @@ public class Vala.ArrayCreationExpression : Expression {
 				if (rank == 1) {
 					il.error = true;
 					e.error = true;
-					Report.error (e.source_reference, "Expected array element, got array initializer list");
+					Report.error (e.source_reference, _("Expected array element, got array initializer list"));
 					return -1;
 				}
 				int size = create_sizes_from_initializer_list (context, (InitializerList) e, rank - 1, sl);
@@ -165,7 +165,7 @@ public class Vala.ArrayCreationExpression : Expression {
 				}
 				if (subsize >= 0 && subsize != size) {
 					il.error = true;
-					Report.error (il.source_reference, "Expected initializer list of size %d, got size %d".printf (subsize, size));
+					Report.error (il.source_reference, _("Expected initializer list of size %d, got size %d").printf (subsize, size));
 					return -1;
 				} else {
 					subsize = size;
@@ -174,7 +174,7 @@ public class Vala.ArrayCreationExpression : Expression {
 				if (rank != 1) {
 					il.error = true;
 					e.error = true;
-					Report.error (e.source_reference, "Expected array initializer list, got array element");
+					Report.error (e.source_reference, _("Expected array initializer list, got array element"));
 					return -1;
 				}
 			}
@@ -216,7 +216,7 @@ public class Vala.ArrayCreationExpression : Expression {
 			if (calc_sizes.size != rank) {
 				error = true;
 				var actual_type = new ArrayType (element_type, calc_sizes.size, source_reference);
-				Report.error (initlist.source_reference, "Expected initializer for `%s' but got `%s'".printf (target_type.to_string (), actual_type.to_string ()));
+				Report.error (initlist.source_reference, _("Expected initializer for `%s' but got `%s'").printf (target_type.to_string (), actual_type.to_string ()));
 			}
 		}
 
@@ -228,14 +228,14 @@ public class Vala.ArrayCreationExpression : Expression {
 					return false;
 				} else if (!(e.value_type is IntegerType || e.value_type is EnumValueType)) {
 					error = true;
-					Report.error (e.source_reference, "Expression of integer type expected");
+					Report.error (e.source_reference, _("Expression of integer type expected"));
 				}
 			}
 		} else {
 			if (initlist == null) {
 				error = true;
 				/* this is an internal error because it is already handeld by the parser */
-				Report.error (source_reference, "internal error: initializer list expected");
+				Report.error (source_reference, _("internal error: initializer list expected"));
 			} else {
 				foreach (Expression size in calc_sizes) {
 					append_size (size);
@@ -255,7 +255,7 @@ public class Vala.ArrayCreationExpression : Expression {
 		/* try to construct the type of the array */
 		if (element_type == null) {
 			error = true;
-			Report.error (source_reference, "Cannot determine the element type of the created array");
+			Report.error (source_reference, _("Cannot determine the element type of the created array"));
 			return false;
 		}
 
