@@ -1,0 +1,2010 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Vala Developers
+# This file is distributed under the same license as the vala package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: vala 0.40.0.87-caef2\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/browse.cgi?product=vala\n"
+"POT-Creation-Date: 2018-04-22 10:18+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: vala/valaaddressofexpression.vala:100
+msgid "Address-of operator not supported for this expression"
+msgstr ""
+
+#: vala/valaarraycreationexpression.vala:159
+msgid "Expected array element, got array initializer list"
+msgstr ""
+
+#: vala/valaarraycreationexpression.vala:168
+#, c-format
+msgid "Expected initializer list of size %d, got size %d"
+msgstr ""
+
+#: vala/valaarraycreationexpression.vala:177
+msgid "Expected array initializer list, got array element"
+msgstr ""
+
+#: vala/valaarraycreationexpression.vala:219
+#, c-format
+msgid "Expected initializer for `%s' but got `%s'"
+msgstr ""
+
+#: vala/valaarraycreationexpression.vala:231 vala/valaelementaccess.vala:215
+#: vala/valasliceexpression.vala:151 vala/valasliceexpression.vala:155
+msgid "Expression of integer type expected"
+msgstr ""
+
+#: vala/valaarraycreationexpression.vala:258
+msgid "Cannot determine the element type of the created array"
+msgstr ""
+
+#: vala/valaarraytype.vala:260
+msgid "syntax error, no expression allowed between array brackets"
+msgstr ""
+
+#: vala/valaarraytype.vala:269
+msgid "Expression of constant integer type expected"
+msgstr ""
+
+#: vala/valaassignment.vala:154
+msgid "Assignment to constant after initialization"
+msgstr ""
+
+#: vala/valaassignment.vala:161 vala/valaassignment.vala:219
+msgid "unsupported lvalue in assignment"
+msgstr ""
+
+#: vala/valaassignment.vala:166 vala/valaassignment.vala:296
+#: vala/valabinaryexpression.vala:329 vala/valabinaryexpression.vala:334
+#: vala/valalocalvariable.vala:121 vala/valamemberaccess.vala:335
+#: vala/valamethodcall.vala:170 vala/valapostfixexpression.vala:118
+#: vala/valasemanticanalyzer.vala:586 vala/valaunaryexpression.vala:175
+#, c-format
+msgid "Access to instance member `%s' denied"
+msgstr ""
+
+#: vala/valaassignment.vala:179 vala/valaassignment.vala:183
+msgid "deprecated syntax, use `connect' method instead"
+msgstr ""
+
+#: vala/valaassignment.vala:198
+msgid "strings are immutable"
+msgstr ""
+
+#: vala/valaassignment.vala:271
+msgid "unsupported expression for signal handler"
+msgstr ""
+
+#: vala/valaassignment.vala:292
+#, c-format
+msgid "method `%s' is incompatible with signal `%s', expected `%s'"
+msgstr ""
+
+#: vala/valaassignment.vala:314 vala/valaassignment.vala:321
+#: vala/valamemberaccess.vala:677 vala/valapostfixexpression.vala:148
+#: vala/valasemanticanalyzer.vala:952
+#, c-format
+msgid "Property `%s' is read-only"
+msgstr ""
+
+#: vala/valaassignment.vala:324
+msgid ""
+"Cannot assign to construct-only properties, use Object (property: value) "
+"constructor chain up"
+msgstr ""
+
+#: vala/valaassignment.vala:340 vala/valalocalvariable.vala:149
+#, c-format
+msgid "declaration of method `%s' doesn't match declaration of callback `%s'"
+msgstr ""
+
+#: vala/valaassignment.vala:347
+msgid "Assignment: Invalid assignment attempt"
+msgstr ""
+
+#: vala/valaassignment.vala:358 vala/valaassignment.vala:402
+#: vala/valalocalvariable.vala:163
+#, c-format
+msgid "Assignment: Cannot convert from `%s' to `%s'"
+msgstr ""
+
+#: vala/valaassignment.vala:368 vala/valaassignment.vala:423
+#: vala/valafield.vala:143 vala/valalocalvariable.vala:186
+#: vala/valasemanticanalyzer.vala:561
+msgid "Invalid assignment from owned expression to unowned variable"
+msgstr ""
+
+#: vala/valaassignment.vala:382 vala/valaassignment.vala:386
+#: vala/valaassignment.vala:392
+msgid "Assignment to same variable"
+msgstr ""
+
+#: vala/valabaseaccess.vala:61
+msgid "Base access invalid outside of instance methods"
+msgstr ""
+
+#: vala/valabaseaccess.vala:68
+msgid "Base access invalid outside of class and struct"
+msgstr ""
+
+#: vala/valabaseaccess.vala:72
+msgid "Base access invalid without base type"
+msgstr ""
+
+#: vala/valabaseaccess.vala:78
+msgid "Base access invalid without base class"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:224
+msgid "left operand is always null"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:238
+msgid "left operand is never null"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:316 vala/valatypecheck.vala:108
+msgid "invalid left operand"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:322
+msgid "invalid right operand"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:349
+msgid "Operands must be strings"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:366
+msgid "Incompatible operand"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:383
+msgid "Pointer arithmetic not supported for `void*'"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:409 vala/valabinaryexpression.vala:422
+#, c-format
+msgid "Arithmetic operation not supported for types `%s' and `%s'"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:446
+#, c-format
+msgid "Relational operation not supported for types `%s' and `%s'"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:465
+#, c-format
+msgid "Equality operation: `%s' and `%s' are incompatible"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:502
+msgid "Operands must be boolean"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:516
+#, c-format
+msgid "Cannot look for `%s' in `%s'"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:522
+#, c-format
+msgid "`%s' does not have a `contains' method"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:527
+#, c-format
+msgid "`%s' must have one parameter"
+msgstr ""
+
+#: vala/valabinaryexpression.vala:532 vala/valaforeachstatement.vala:283
+#, c-format
+msgid "`%s' must return a boolean value"
+msgstr ""
+
+#: vala/valablock.vala:94
+#, c-format
+msgid ""
+"Local variable `%s' conflicts with a local variable or constant declared in "
+"a parent scope"
+msgstr ""
+
+#: vala/valablock.vala:119
+#, c-format
+msgid ""
+"Local constant `%s' conflicts with a local variable or constant declared in "
+"a parent scope"
+msgstr ""
+
+#: vala/valacastexpression.vala:138
+msgid "Invalid cast expression"
+msgstr ""
+
+#: vala/valacatchclause.vala:121
+#, c-format
+msgid "clause must catch a valid error type, found `%s' instead"
+msgstr ""
+
+#: vala/valaclass.vala:237 vala/valacreationmethod.vala:89
+#: vala/valastruct.vala:222
+#, c-format
+msgid "missing return type in method `%s.%s´"
+msgstr ""
+
+#: vala/valaclass.vala:270 vala/valagenieparser.vala:2748
+msgid "class already contains a constructor"
+msgstr ""
+
+#: vala/valaclass.vala:275 vala/valagenieparser.vala:2753
+msgid "class already contains a class constructor"
+msgstr ""
+
+#: vala/valaclass.vala:280 vala/valagenieparser.vala:2758
+msgid "class already contains a static constructor"
+msgstr ""
+
+#: vala/valaclass.vala:289 vala/valagenieparser.vala:2777
+msgid "class already contains a destructor"
+msgstr ""
+
+#: vala/valaclass.vala:294 vala/valagenieparser.vala:2772
+msgid "class already contains a class destructor"
+msgstr ""
+
+#: vala/valaclass.vala:299 vala/valagenieparser.vala:2767
+msgid "class already contains a static destructor"
+msgstr ""
+
+#: vala/valaclass.vala:472
+#, c-format
+msgid "base type `%s` of class `%s` is not an object type"
+msgstr ""
+
+#: vala/valaclass.vala:479
+#, c-format
+msgid "base type `%s` is less accessible than class `%s`"
+msgstr ""
+
+#: vala/valaclass.vala:487 vala/valadelegatetype.vala:127
+#: vala/valamethodcall.vala:357 vala/valaobjectcreationexpression.vala:334
+#: vala/valaobjecttype.vala:105
+msgid "too few type arguments"
+msgstr ""
+
+#: vala/valaclass.vala:491 vala/valadelegatetype.vala:130
+#: vala/valamethodcall.vala:361 vala/valaobjectcreationexpression.vala:338
+#: vala/valaobjecttype.vala:108
+msgid "too many type arguments"
+msgstr ""
+
+#: vala/valaclass.vala:524
+msgid ""
+"NoAccessorMethod is only allowed for properties in classes derived from GLib."
+"Object"
+msgstr ""
+
+#: vala/valaclass.vala:575
+#, c-format
+msgid "compact classes `%s` may not implement interfaces"
+msgstr ""
+
+#: vala/valaclass.vala:583
+msgid "derived compact classes may not have instance fields"
+msgstr ""
+
+#: vala/valaclass.vala:657
+#, c-format
+msgid "`%s' does not implement interface method `%s'"
+msgstr ""
+
+#: vala/valaclass.vala:677
+#, c-format
+msgid ""
+"Type and/or accessors of inherited properties `%s' and `%s' do not match: %s."
+msgstr ""
+
+#: vala/valaclass.vala:684
+#, c-format
+msgid "`%s' does not implement interface property `%s'"
+msgstr ""
+
+#: vala/valaclass.vala:700
+#, c-format
+msgid "`%s' does not implement abstract method `%s'"
+msgstr ""
+
+#: vala/valaclass.vala:709
+#, c-format
+msgid "`%s' does not implement abstract property `%s'"
+msgstr ""
+
+#: vala/valacodecontext.vala:371
+#, c-format
+msgid ""
+"Package `%s' not found in specified Vala API directories or GObject-"
+"Introspection GIR directories"
+msgstr ""
+
+#: vala/valacodecontext.vala:413
+#, c-format
+msgid "Unable to read dependency file: %s"
+msgstr ""
+
+#: vala/valacodecontext.vala:431
+#, c-format
+msgid "%s not found"
+msgstr ""
+
+#: vala/valacodecontext.vala:456
+#, c-format
+msgid ""
+"%s is not a supported source file type. Only .vala, .vapi, .gs, and .c files "
+"are supported."
+msgstr ""
+
+#: vala/valacodecontext.vala:599 vala/valacodewriter.vala:82
+#, c-format
+msgid "unable to open `%s' for writing"
+msgstr ""
+
+#: vala/valacodecontext.vala:739
+#, c-format
+msgid "%s exited with status %d"
+msgstr ""
+
+#: vala/valacodewriter.vala:172
+msgid ""
+"Comment describes namespace, that was already described by another comment."
+msgstr ""
+
+#: vala/valaconditionalexpression.vala:115
+msgid "Conditional expressions may only be used in blocks"
+msgstr ""
+
+#: vala/valaconditionalexpression.vala:163
+msgid "Incompatible expressions"
+msgstr ""
+
+#: vala/valaconstant.vala:130
+#, c-format
+msgid "`%s' not supported as type for constants"
+msgstr ""
+
+#: vala/valaconstant.vala:137
+msgid "A const field requires a value to be provided"
+msgstr ""
+
+#: vala/valaconstant.vala:148 vala/valafield.vala:134
+#: vala/valaparameter.vala:180 vala/valaswitchlabel.vala:96
+#, c-format
+msgid "Cannot convert from `%s' to `%s'"
+msgstr ""
+
+#: vala/valaconstant.vala:169
+msgid "Value must be constant"
+msgstr ""
+
+#: vala/valaconstant.vala:176
+msgid "External constants cannot use values"
+msgstr ""
+
+#: vala/valaconstant.vala:181
+#, c-format
+msgid ""
+"%s hides inherited constant `%s'. Use the `new' keyword if hiding was "
+"intentional"
+msgstr ""
+
+#: vala/valaconstructor.vala:82 vala/valacreationmethod.vala:182
+#: vala/valamethod.vala:855 vala/valapropertyaccessor.vala:202
+#, c-format
+msgid "unhandled error `%s'"
+msgstr ""
+
+#: vala/valacreationmethod.vala:107 vala/valamethod.vala:722
+msgid "Named parameter required before `...'"
+msgstr ""
+
+#: vala/valacreationmethod.vala:146
+msgid "unable to chain up to private base constructor"
+msgstr ""
+
+#: vala/valacreationmethod.vala:148
+msgid "unable to chain up to base constructor requiring arguments"
+msgstr ""
+
+#: vala/valacreationmethod.vala:168
+#, c-format
+msgid ""
+"The creation method `%s' cannot be marked as override, virtual, or abstract"
+msgstr ""
+
+#: vala/valadelegatetype.vala:117
+msgid "delegates with scope=\"async\" must be owned"
+msgstr ""
+
+#: vala/valadeletestatement.vala:67
+#, c-format
+msgid "delete operator not supported for `%s'"
+msgstr ""
+
+#: vala/valaelementaccess.vala:124 vala/valasliceexpression.vala:134
+msgid "Invalid container expression"
+msgstr ""
+
+#: vala/valaelementaccess.vala:132
+msgid ""
+"Element access with more than one dimension is not supported for signals"
+msgstr ""
+
+#: vala/valaelementaccess.vala:168
+#, c-format
+msgid "%d extra indices for element access"
+msgstr ""
+
+#: vala/valaelementaccess.vala:170
+#, c-format
+msgid "%d missing indices for element access"
+msgstr ""
+
+#: vala/valaelementaccess.vala:201 vala/valasliceexpression.vala:169
+#, c-format
+msgid "The expression `%s' does not denote an array"
+msgstr ""
+
+#: vala/valaenum.vala:77 vala/valaerrordomain.vala:60
+#: vala/valainterface.vala:81 vala/valanamespace.vala:428
+msgid "construction methods may only be declared within classes and structs"
+msgstr ""
+
+#: vala/valaenum.vala:175
+#, c-format
+msgid "Enum `%s' requires at least one value"
+msgstr ""
+
+#: vala/valafield.vala:105
+msgid "'void' not supported as field type"
+msgstr ""
+
+#: vala/valafield.vala:114
+#, c-format
+msgid "field type `%s` is less accessible than field `%s`"
+msgstr ""
+
+#: vala/valafield.vala:128 vala/valainitializerlist.vala:214
+#: vala/valalocalvariable.vala:136 vala/valalocalvariable.vala:156
+msgid "expression type not allowed as initializer"
+msgstr ""
+
+#: vala/valafield.vala:150
+msgid "Non-constant field initializers not supported in this context"
+msgstr ""
+
+#: vala/valafield.vala:157
+msgid "Owned namespace fields can only be initialized in a function or method"
+msgstr ""
+
+#: vala/valafield.vala:164
+msgid "Static fields in compact classes cannot have non-constant initializers"
+msgstr ""
+
+#: vala/valafield.vala:170
+msgid "External fields cannot use initializers"
+msgstr ""
+
+#: vala/valafield.vala:176
+msgid "Interfaces may not have instance fields"
+msgstr ""
+
+#: vala/valafield.vala:190
+#, c-format
+msgid ""
+"%s hides inherited field `%s'. Use the `new' keyword if hiding was "
+"intentional"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:152
+#, c-format
+msgid "field `%s' never used"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:181
+#, c-format
+msgid "method `%s' never used"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:236
+msgid "missing return statement at end of subroutine body"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:428 vala/valaflowanalyzer.vala:464
+#, c-format
+msgid "use of possibly unassigned local variable `%s'"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:431 vala/valaflowanalyzer.vala:467
+#, c-format
+msgid "use of possibly unassigned parameter `%s'"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:567
+#, c-format
+msgid "local variable `%s' declared but never used"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:697
+msgid "missing break statement at end of switch section"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:812
+msgid "no enclosing loop or switch statement found"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:835 vala/valaflowanalyzer.vala:864
+msgid "no enclosing loop found"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:960
+msgid "jump out of finally block not permitted"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:1013
+msgid "double catch clause of same error detected"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:1021
+msgid "unreachable catch clause detected"
+msgstr ""
+
+#: vala/valaflowanalyzer.vala:1073
+msgid "unreachable code detected"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:163
+msgid "invalid collection expression"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:181
+msgid "missing type argument for collection"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:231
+#, c-format
+msgid "`%s' does not have an `iterator' method"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:236 vala/valaforeachstatement.vala:254
+#: vala/valaforeachstatement.vala:278 vala/valaforeachstatement.vala:294
+#, c-format
+msgid "`%s' must not have any parameters"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:242
+#, c-format
+msgid "`%s' must return an iterator"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:260
+#, c-format
+msgid "return type of `%s' must be nullable"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:289
+#, c-format
+msgid "`%s' does not have a `get' method"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:300
+#, c-format
+msgid "`%s' must return an element"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:316
+#, c-format
+msgid "`%s' does not have a `next_value' or `next' method"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:332 vala/valaforeachstatement.vala:350
+#, c-format
+msgid "Foreach: Cannot convert from `%s' to `%s'"
+msgstr ""
+
+#: vala/valaforeachstatement.vala:336
+msgid "Foreach: Invalid assignment from owned expression to unowned variable"
+msgstr ""
+
+#: vala/valagenieparser.vala:163 vala/valaparser.vala:121
+#, c-format
+msgid "syntax error, %s"
+msgstr ""
+
+#: vala/valagenieparser.vala:174
+#, c-format
+msgid "expected %s but got %s with previous %s"
+msgstr ""
+
+#: vala/valagenieparser.vala:184
+#, c-format
+msgid "expected line end or comma but got %s"
+msgstr ""
+
+#: vala/valagenieparser.vala:194
+#, c-format
+msgid "expected line end or semicolon but got %s"
+msgstr ""
+
+#: vala/valagenieparser.vala:343 vala/valagirparser.vala:319
+#: vala/valaparser.vala:265
+msgid "expected identifier"
+msgstr ""
+
+#: vala/valagenieparser.vala:372 vala/valageniescanner.vala:1313
+#: vala/valaparser.vala:295 vala/valascanner.vala:1197
+msgid "invalid character literal"
+msgstr ""
+
+#: vala/valagenieparser.vala:397 vala/valagenieparser.vala:2368
+#: vala/valaparser.vala:320 vala/valaparser.vala:2170
+msgid "expected literal"
+msgstr ""
+
+#: vala/valagenieparser.vala:513 vala/valaparser.vala:447
+msgid "deprecated syntax, use `unowned` modifier"
+msgstr ""
+
+#: vala/valagenieparser.vala:1087 vala/valaparser.vala:948
+msgid "size of inner arrays must not be specified in array creation expression"
+msgstr ""
+
+#: vala/valagenieparser.vala:1184 vala/valaparser.vala:1009
+msgid "syntax error, expected method call"
+msgstr ""
+
+#: vala/valagenieparser.vala:1185 vala/valaparser.vala:1010
+msgid "expected method call"
+msgstr ""
+
+#: vala/valagenieparser.vala:1240 vala/valaparser.vala:1073
+msgid "deprecated syntax, use `(owned)` cast"
+msgstr ""
+
+#: vala/valagenieparser.vala:1902 vala/valaparser.vala:1746
+msgid "embedded statement cannot be declaration "
+msgstr ""
+
+#: vala/valagenieparser.vala:1915 vala/valaparser.vala:1759
+msgid "embedded statement cannot be declaration"
+msgstr ""
+
+#: vala/valagenieparser.vala:1928
+msgid "tab indentation is incorrect"
+msgstr ""
+
+#: vala/valagenieparser.vala:2365 vala/valaparser.vala:2167
+msgid "expected number"
+msgstr ""
+
+#: vala/valagenieparser.vala:2405 vala/valaparser.vala:2205
+#, c-format
+msgid "duplicate attribute `%s`"
+msgstr ""
+
+#: vala/valagenieparser.vala:2468
+#, c-format
+msgid "expected declaration  but got %s with previous %s"
+msgstr ""
+
+#: vala/valagenieparser.vala:2506
+msgid "expected dedent"
+msgstr ""
+
+#: vala/valagenieparser.vala:2614
+msgid "unexpected declaration in namespace"
+msgstr ""
+
+#: vala/valagenieparser.vala:2783
+msgid "unexpected declaration in class"
+msgstr ""
+
+#: vala/valagenieparser.vala:2825 vala/valaparser.vala:2604
+msgid "the modifier `static' is not applicable to constants"
+msgstr ""
+
+#: vala/valagenieparser.vala:2845 vala/valaparser.vala:2637
+msgid "abstract, virtual, and override modifiers are not applicable to fields"
+msgstr ""
+
+#: vala/valagenieparser.vala:3011 vala/valaparser.vala:2712
+#: vala/valaparser.vala:2806
+msgid "only one of `abstract', `virtual', or `override' may be specified"
+msgstr ""
+
+#: vala/valagenieparser.vala:3017
+msgid ""
+"the modifiers `abstract', `virtual', and `override' are not valid for static "
+"methods"
+msgstr ""
+
+#: vala/valagenieparser.vala:3128 vala/valaparser.vala:2798
+msgid "async properties are not supported yet"
+msgstr ""
+
+#: vala/valagenieparser.vala:3147 vala/valaparser.vala:2843
+msgid "property get accessor already defined"
+msgstr ""
+
+#: vala/valagenieparser.vala:3161
+msgid "set block not allowed for a read only property"
+msgstr ""
+
+#: vala/valagenieparser.vala:3167
+msgid "expected get, set, or construct"
+msgstr ""
+
+#: vala/valagenieparser.vala:3171 vala/valaparser.vala:2870
+msgid "property set accessor already defined"
+msgstr ""
+
+#: vala/valagenieparser.vala:3249 vala/valaparser.vala:2899
+msgid "`static' modifier not allowed on signals"
+msgstr ""
+
+#: vala/valagenieparser.vala:3251 vala/valaparser.vala:2901
+msgid "`class' modifier not allowed on signals"
+msgstr ""
+
+#: vala/valagenieparser.vala:3348
+msgid "unexpected declaration in struct"
+msgstr ""
+
+#: vala/valagenieparser.vala:3425
+msgid "unexpected declaration in interface"
+msgstr ""
+
+#: vala/valagenieparser.vala:3730 vala/valaparser.vala:3359
+msgid "`new' modifier not allowed on delegates"
+msgstr ""
+
+#: vala/valageniescanner.vala:139 vala/valascanner.vala:124
+msgid "modifier 'i' used more than once"
+msgstr ""
+
+#: vala/valageniescanner.vala:145 vala/valascanner.vala:130
+msgid "modifier 's' used more than once"
+msgstr ""
+
+#: vala/valageniescanner.vala:151 vala/valascanner.vala:136
+msgid "modifier 'm' used more than once"
+msgstr ""
+
+#: vala/valageniescanner.vala:157 vala/valascanner.vala:142
+msgid "modifier 'x' used more than once"
+msgstr ""
+
+#: vala/valageniescanner.vala:240 vala/valageniescanner.vala:738
+#: vala/valageniescanner.vala:1293 vala/valascanner.vala:243
+#: vala/valascanner.vala:742 vala/valascanner.vala:1177
+msgid "invalid escape sequence"
+msgstr ""
+
+#: vala/valageniescanner.vala:252 vala/valageniescanner.vala:753
+#: vala/valageniescanner.vala:1247 vala/valageniescanner.vala:1308
+#: vala/valageniescanner.vala:1329 vala/valamarkupreader.vala:104
+#: vala/valamarkupreader.vala:233 vala/valascanner.vala:255
+#: vala/valascanner.vala:757 vala/valascanner.vala:1112
+#: vala/valascanner.vala:1192 vala/valascanner.vala:1213
+msgid "invalid UTF-8 character"
+msgstr ""
+
+#: vala/valageniescanner.vala:257 vala/valageniescanner.vala:758
+#: vala/valascanner.vala:260 vala/valascanner.vala:762
+msgid "syntax error, expected \""
+msgstr ""
+
+#: vala/valageniescanner.vala:700 vala/valascanner.vala:686
+msgid "unexpected character"
+msgstr ""
+
+#: vala/valageniescanner.vala:1254 vala/valascanner.vala:1119
+msgid "syntax error, expected \"\"\""
+msgstr ""
+
+#: vala/valageniescanner.vala:1319 vala/valascanner.vala:1203
+#, c-format
+msgid "syntax error, expected %c"
+msgstr ""
+
+#: vala/valageniescanner.vala:1326 vala/valascanner.vala:1210
+msgid "syntax error, unexpected character"
+msgstr ""
+
+#: vala/valageniescanner.vala:1493 vala/valascanner.vala:1582
+msgid "syntax error, expected */"
+msgstr ""
+
+#: vala/valageniescanner.vala:1606 vala/valascanner.vala:1291
+msgid "syntax error, invalid preprocessing directive"
+msgstr ""
+
+#: vala/valageniescanner.vala:1636 vala/valascanner.vala:1321
+msgid "syntax error, expected newline"
+msgstr ""
+
+#: vala/valageniescanner.vala:1666 vala/valascanner.vala:1351
+msgid "syntax error, unexpected #elif"
+msgstr ""
+
+#: vala/valageniescanner.vala:1685 vala/valascanner.vala:1370
+msgid "syntax error, unexpected #else"
+msgstr ""
+
+#: vala/valageniescanner.vala:1704 vala/valascanner.vala:1389
+msgid "syntax error, unexpected #endif"
+msgstr ""
+
+#: vala/valageniescanner.vala:1720 vala/valageniescanner.vala:1739
+#: vala/valageniescanner.vala:1756 vala/valascanner.vala:1405
+#: vala/valascanner.vala:1424 vala/valascanner.vala:1441
+msgid "syntax error, expected identifier"
+msgstr ""
+
+#: vala/valageniescanner.vala:1752 vala/valascanner.vala:1437
+msgid "syntax error, expected `)'"
+msgstr ""
+
+#: vala/valagirparser.vala:317
+msgid "expected glob-style pattern"
+msgstr ""
+
+#: vala/valagirparser.vala:356
+#, c-format
+msgid "expected pattern or `.', got %s"
+msgstr ""
+
+#: vala/valagirparser.vala:364
+msgid "cannot determinate parent metadata"
+msgstr ""
+
+#: vala/valagirparser.vala:378
+#, c-format
+msgid "expected `.' got %s"
+msgstr ""
+
+#: vala/valagirparser.vala:417
+#, c-format
+msgid "expected expression after `-', got %s"
+msgstr ""
+
+#: vala/valagirparser.vala:435
+#, c-format
+msgid "expected identifier got %s"
+msgstr ""
+
+#: vala/valagirparser.vala:444
+#, c-format
+msgid "expected `)', got %s"
+msgstr ""
+
+#: vala/valagirparser.vala:450
+#, c-format
+msgid "expected literal or symbol got %s"
+msgstr ""
+
+#: vala/valagirparser.vala:466
+#, c-format
+msgid "unknown argument `%s'"
+msgstr ""
+
+#: vala/valagirparser.vala:906
+#, c-format
+msgid "Signal `%s' conflicts with method of the same name"
+msgstr ""
+
+#: vala/valagirparser.vala:928
+#, c-format
+msgid "Virtual method `%s' conflicts with method of the same name"
+msgstr ""
+
+#: vala/valagirparser.vala:1416
+#, c-format
+msgid "expected start element of `%s'"
+msgstr ""
+
+#: vala/valagirparser.vala:1422
+#, c-format
+msgid "expected end element of `%s'"
+msgstr ""
+
+#: vala/valagirparser.vala:1530
+#, c-format
+msgid "impossible to add `%s' to container `%s'"
+msgstr ""
+
+#: vala/valagirparser.vala:1544
+msgid "a symbol must be specified"
+msgstr ""
+
+#: vala/valagirparser.vala:1696
+msgid "unable to parse type"
+msgstr ""
+
+#: vala/valagirparser.vala:1721
+msgid "invalid void type"
+msgstr ""
+
+#: vala/valagirparser.vala:1730
+msgid "unexpected `owned' keyword"
+msgstr ""
+
+#: vala/valagirparser.vala:1738
+msgid "unexpected `unowned' keyword"
+msgstr ""
+
+#: vala/valagirparser.vala:1901
+#, c-format
+msgid "unsupported GIR version %s (supported: %s)"
+msgstr ""
+
+#: vala/valagirparser.vala:1926 vala/valagirparser.vala:2192
+#: vala/valagirparser.vala:2352 vala/valagirparser.vala:2789
+#: vala/valagirparser.vala:2872 vala/valagirparser.vala:2930
+#: vala/valagirparser.vala:3392 vala/valagirparser.vala:3433
+#: vala/valagirparser.vala:3478
+#, c-format
+msgid "unknown child element `%s' in `%s'"
+msgstr ""
+
+#: vala/valagirparser.vala:1971
+msgid "unexpected end of file"
+msgstr ""
+
+#: vala/valagirparser.vala:2360
+#, c-format
+msgid "%s `%s' has no members"
+msgstr ""
+
+#: vala/valagirparser.vala:2446
+msgid "expected start element of `parameter' or `instance-parameter'"
+msgstr ""
+
+#: vala/valagirparser.vala:3222
+msgid "instance_idx required when converting function to method"
+msgstr ""
+
+#: vala/valagirparser.vala:3515
+msgid "empty metadata"
+msgstr ""
+
+#: vala/valagirparser.vala:3523
+msgid "argument never used"
+msgstr ""
+
+#: vala/valagirparser.vala:3529
+msgid "metadata never used"
+msgstr ""
+
+#: vala/valagirparser.vala:3728 vala/valagirparser.vala:3859
+msgid "invalid array_length index"
+msgstr ""
+
+#: vala/valagirparser.vala:3867
+msgid "invalid closure index"
+msgstr ""
+
+#: vala/valagirparser.vala:3876
+msgid "invalid destroy index"
+msgstr ""
+
+#: vala/valagirparser.vala:3991
+#, c-format
+msgid "Unknown symbol `%s' for virtual method field `%s'"
+msgstr ""
+
+#: vala/valaifstatement.vala:129
+msgid "Condition must be boolean"
+msgstr ""
+
+#: vala/valainitializerlist.vala:126
+msgid "initializer list used for unknown type"
+msgstr ""
+
+#: vala/valainitializerlist.vala:185
+#, c-format
+msgid "too many expressions in initializer list for `%s'"
+msgstr ""
+
+#: vala/valainitializerlist.vala:202
+#, c-format
+msgid "initializer list used for `%s', which is neither array nor struct"
+msgstr ""
+
+#: vala/valainitializerlist.vala:224 vala/valaproperty.vala:517
+#, c-format
+msgid "Expected initializer of type `%s' but got `%s'"
+msgstr ""
+
+#: vala/valainterface.vala:105
+msgid "automatic properties are not allowed in interfaces"
+msgstr ""
+
+#: vala/valainterface.vala:219
+#, c-format
+msgid "prerequisite `%s` is less accessible than interface `%s`"
+msgstr ""
+
+#: vala/valainterface.vala:236
+#, c-format
+msgid "Prerequisite `%s` of interface `%s` is not a class or interface"
+msgstr ""
+
+#: vala/valainterface.vala:244
+#, c-format
+msgid ""
+"%s: Interfaces cannot have multiple instantiable prerequisites (`%s' and `"
+"%s')"
+msgstr ""
+
+#: vala/valainterface.vala:335
+#, c-format
+msgid "%s: Invalid ordering"
+msgstr ""
+
+#: vala/valainterface.vala:344 vala/valainterface.vala:349
+#, c-format
+msgid "%s: Cannot mix ordered and unordered virtuals"
+msgstr ""
+
+#: vala/valainterface.vala:357
+#, c-format
+msgid "%s: Duplicate ordering (previous virtual with the same position is %s)"
+msgstr ""
+
+#: vala/valainterface.vala:368
+#, c-format
+msgid "%s: Gap in ordering in position %d"
+msgstr ""
+
+#: vala/valalambdaexpression.vala:126
+#, c-format
+msgid "Cannot convert lambda expression to `%s'"
+msgstr ""
+
+#: vala/valalambdaexpression.vala:128
+msgid "lambda expression not allowed in this context"
+msgstr ""
+
+#: vala/valalambdaexpression.vala:186
+#, c-format
+msgid "direction of parameter `%s' is incompatible with the target delegate"
+msgstr ""
+
+#: vala/valalambdaexpression.vala:196
+msgid "lambda expression: too many parameters"
+msgstr ""
+
+#: vala/valalocalvariable.vala:85
+msgid "'void' not supported as variable type"
+msgstr ""
+
+#: vala/valalocalvariable.vala:111
+msgid "var declaration not allowed without initializer"
+msgstr ""
+
+#: vala/valalocalvariable.vala:116
+msgid "var declaration not allowed with non-typed initializer"
+msgstr ""
+
+#: vala/valalocalvariable.vala:177
+msgid "only arrays are allowed as initializer for arrays with fixed length"
+msgstr ""
+
+#: vala/valalockstatement.vala:89 vala/valaunlockstatement.vala:56
+msgid ""
+"Expression is either not a member access or does not denote a lockable member"
+msgstr ""
+
+#: vala/valalockstatement.vala:97 vala/valaunlockstatement.vala:64
+msgid "Only members of the current class are lockable"
+msgstr ""
+
+#: vala/valamarkupreader.vala:60 vala/valasourcefile.vala:355
+#, c-format
+msgid "Unable to map file `%s': %s"
+msgstr ""
+
+#: vala/valamemberaccess.vala:225
+msgid "This access invalid outside of instance methods"
+msgstr ""
+
+#: vala/valamemberaccess.vala:307 vala/valasymbolresolver.vala:248
+#, c-format
+msgid "`%s' is an ambiguous reference between `%s' and `%s'"
+msgstr ""
+
+#: vala/valamemberaccess.vala:476
+#, c-format
+msgid "The name `%s' does not exist in the context of `%s'"
+msgstr ""
+
+#: vala/valamemberaccess.vala:531
+#, c-format
+msgid "Cannot capture reference or output parameter `%s'"
+msgstr ""
+
+#: vala/valamemberaccess.vala:591
+#, c-format
+msgid "Access to async callback `%s' not allowed in this context"
+msgstr ""
+
+#: vala/valamemberaccess.vala:689
+#, c-format
+msgid "Property `%s' is write-only"
+msgstr ""
+
+#: vala/valamemberaccess.vala:735
+#, c-format
+msgid "Access to protected member `%s' denied"
+msgstr ""
+
+#: vala/valamemberaccess.vala:751 vala/valasemanticanalyzer.vala:940
+#, c-format
+msgid "Access to private member `%s' denied"
+msgstr ""
+
+#: vala/valamemberaccess.vala:769
+msgid "missing generic type arguments"
+msgstr ""
+
+#: vala/valamemberaccess.vala:807
+#, c-format
+msgid "Access to static member `%s' with an instance reference"
+msgstr ""
+
+#: vala/valamemberaccess.vala:814
+#, c-format
+msgid "Access to instance member `%s' from nullable reference denied"
+msgstr ""
+
+#: vala/valamethodcall.vala:239 vala/valamethodcall.vala:288
+#: vala/valamethodcall.vala:311 vala/valamethodcall.vala:321
+msgid "invocation not supported in this context"
+msgstr ""
+
+#: vala/valamethodcall.vala:243
+msgid "Multiple constructor calls in the same constructor are not permitted"
+msgstr ""
+
+#: vala/valamethodcall.vala:254 vala/valamethodcall.vala:258
+#: vala/valamethodcall.vala:265
+#, c-format
+msgid "chain up to `%s' not supported"
+msgstr ""
+
+#: vala/valamethodcall.vala:272
+msgid "chain up to `GLib.Object' not supported"
+msgstr ""
+
+#: vala/valamethodcall.vala:304 vala/valamethodcall.vala:317
+msgid "use `new' operator to create new objects"
+msgstr ""
+
+#: vala/valamethodcall.vala:347
+#, c-format
+msgid "use of `%s' not allowed in yield statement"
+msgstr ""
+
+#: vala/valamethodcall.vala:466
+msgid "invocation of void method not allowed as expression"
+msgstr ""
+
+#: vala/valamethodcall.vala:481 vala/valaobjectcreationexpression.vala:355
+msgid "yield expression requires async method"
+msgstr ""
+
+#: vala/valamethodcall.vala:485 vala/valaobjectcreationexpression.vala:359
+msgid "yield expression not available outside async method"
+msgstr ""
+
+#: vala/valamethodcall.vala:560
+#, c-format
+msgid "cannot infer generic type argument for type parameter `%s'"
+msgstr ""
+
+#: vala/valamethodcall.vala:636 vala/valaobjectcreationexpression.vala:492
+msgid "Field initializers must not throw errors"
+msgstr ""
+
+#: vala/valamethod.vala:564 vala/valamethod.vala:611
+#, c-format
+msgid "overriding method `%s' is incompatible with base method `%s': %s."
+msgstr ""
+
+#: vala/valamethod.vala:623
+#, c-format
+msgid "`%s': no suitable interface method found to implement"
+msgstr ""
+
+#: vala/valamethod.vala:645
+msgid ""
+"Abstract and virtual methods may not be declared in derived compact classes"
+msgstr ""
+
+#: vala/valamethod.vala:655
+msgid "Abstract methods may not be declared in non-abstract classes"
+msgstr ""
+
+#: vala/valamethod.vala:660
+msgid "Abstract methods may not be declared outside of classes and interfaces"
+msgstr ""
+
+#: vala/valamethod.vala:666
+msgid "Virtual methods may not be declared outside of classes and interfaces"
+msgstr ""
+
+#: vala/valamethod.vala:672
+msgid "Methods may not be overridden outside of classes"
+msgstr ""
+
+#: vala/valamethod.vala:678
+msgid "Protected methods may not be declared outside of classes and interfaces"
+msgstr ""
+
+#: vala/valamethod.vala:684
+msgid "Abstract methods cannot have bodies"
+msgstr ""
+
+#: vala/valamethod.vala:686
+msgid "Extern methods cannot be abstract or virtual"
+msgstr ""
+
+#: vala/valamethod.vala:688
+msgid "Extern methods cannot have bodies"
+msgstr ""
+
+#: vala/valamethod.vala:690
+msgid "Non-abstract, non-extern methods must have bodies"
+msgstr ""
+
+#: vala/valamethod.vala:695
+msgid "gio-2.0 package required for async methods"
+msgstr ""
+
+#: vala/valamethod.vala:730
+msgid "Reference parameters are not supported for async methods"
+msgstr ""
+
+#: vala/valamethod.vala:737
+msgid "parameter without default follows parameter with default"
+msgstr ""
+
+#: vala/valamethod.vala:749
+#, c-format
+msgid "error type `%s` is less accessible than method `%s`"
+msgstr ""
+
+#: vala/valamethod.vala:777
+#, c-format
+msgid "A struct member `%s' cannot be marked as override, virtual, or abstract"
+msgstr ""
+
+#: vala/valamethod.vala:781
+#, c-format
+msgid "`%s': no suitable method found to override"
+msgstr ""
+
+#: vala/valamethod.vala:784
+#, c-format
+msgid "Private member `%s' cannot be marked as override, virtual, or abstract"
+msgstr ""
+
+#: vala/valamethod.vala:795
+#, c-format
+msgid "`%s' already contains an implementation for `%s'"
+msgstr ""
+
+#: vala/valamethod.vala:806
+#, c-format
+msgid ""
+"%s hides inherited method `%s'. Use the `new' keyword if hiding was "
+"intentional"
+msgstr ""
+
+#: vala/valamethod.vala:812
+#, c-format
+msgid "return type `%s` is less accessible than method `%s`"
+msgstr ""
+
+#: vala/valamethod.vala:825
+msgid "Precondition must be boolean"
+msgstr ""
+
+#: vala/valamethod.vala:839
+msgid "Postcondition must be boolean"
+msgstr ""
+
+#: vala/valamethod.vala:886
+msgid ""
+"DBus methods are recommended to throw at least `GLib.Error' or `GLib."
+"DBusError, GLib.IOError'"
+msgstr ""
+
+#: vala/valamethod.vala:894
+#, c-format
+msgid "program already has an entry point `%s'"
+msgstr ""
+
+#: vala/valamethod.vala:901
+msgid "`main' method cannot throw errors"
+msgstr ""
+
+#: vala/valamethod.vala:905
+msgid "`main' method cannot be inline"
+msgstr ""
+
+#: vala/valamethod.vala:909
+msgid "`main' method cannot be async"
+msgstr ""
+
+#: vala/valanamespace.vala:394 vala/valanamespace.vala:433
+msgid "instance members are not allowed outside of data types"
+msgstr ""
+
+#: vala/valanamespace.vala:398 vala/valanamespace.vala:437
+msgid "class members are not allowed outside of classes"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:187
+msgid "Incomplete object creation expression"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:207
+#, c-format
+msgid "`%s' is not a creation method"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:235
+#, c-format
+msgid "`%s' is not a class, struct, or error code"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:261
+msgid "syntax error, use `new' to create new objects"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:268
+#, c-format
+msgid "Can't create instance of abstract class `%s'"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:277
+#: vala/valaobjectcreationexpression.vala:327
+#, c-format
+msgid "`%s' does not have a default constructor"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:298
+#, c-format
+msgid "Access to non-public constructor `%s' denied"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:318
+msgid "deprecated syntax, don't use `new' to initialize structs"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:345
+#, c-format
+msgid "No arguments allowed when constructing type `%s'"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:455
+msgid "Too few arguments, errors need at least 1 argument"
+msgstr ""
+
+#: vala/valaobjectcreationexpression.vala:462
+msgid "Invalid type for argument 1"
+msgstr ""
+
+#: vala/valaparameter.vala:146
+msgid "'void' not supported as parameter type"
+msgstr ""
+
+#: vala/valaparameter.vala:157
+msgid "parameter array expected"
+msgstr ""
+
+#: vala/valaparameter.vala:176
+#, c-format
+msgid "`null' incompatible with parameter type `%s`"
+msgstr ""
+
+#: vala/valaparameter.vala:178
+msgid "only `null' is allowed as default value for out parameters"
+msgstr ""
+
+#: vala/valaparameter.vala:182
+msgid "default value not allowed for ref parameter"
+msgstr ""
+
+#: vala/valaparameter.vala:184
+#, c-format
+msgid "default value is less accessible than method `%s'"
+msgstr ""
+
+#: vala/valaparameter.vala:192
+#, c-format
+msgid "parameter type `%s` is less accessible than method `%s`"
+msgstr ""
+
+#: vala/valaparser.vala:129
+#, c-format
+msgid "expected %s"
+msgstr ""
+
+#: vala/valaparser.vala:345
+msgid "unexpected `}'"
+msgstr ""
+
+#: vala/valaparser.vala:451
+msgid "`owned' is default in this context"
+msgstr ""
+
+#: vala/valaparser.vala:459
+msgid "`unowned' is default in this context"
+msgstr ""
+
+#: vala/valaparser.vala:527
+msgid "obsolete syntax, types are non-null by default"
+msgstr ""
+
+#: vala/valaparser.vala:533
+msgid "deprecated syntax, use `owned` modifier"
+msgstr ""
+
+#: vala/valaparser.vala:887
+msgid "expected `(' or `['"
+msgstr ""
+
+#: vala/valaparser.vala:1727
+#, c-format
+msgid "%s-statement without body"
+msgstr ""
+
+#: vala/valaparser.vala:1772 vala/valaparser.vala:2402
+#: vala/valaparser.vala:2489
+msgid "expected `}'"
+msgstr ""
+
+#: vala/valaparser.vala:2027
+msgid "syntax error, expected var or type"
+msgstr ""
+
+#: vala/valaparser.vala:2028
+msgid "expected var or type"
+msgstr ""
+
+#: vala/valaparser.vala:2219
+msgid "expected end of file"
+msgstr ""
+
+#: vala/valaparser.vala:2225
+msgid "main blocks are experimental"
+msgstr ""
+
+#: vala/valaparser.vala:2279
+msgid "expected statement"
+msgstr ""
+
+#: vala/valaparser.vala:2282
+msgid "statements outside blocks allowed only in root namespace"
+msgstr ""
+
+#: vala/valaparser.vala:2372
+msgid "expected declaration"
+msgstr ""
+
+#: vala/valaparser.vala:2623 vala/valaparser.vala:2686
+#: vala/valaparser.vala:2779 vala/valaparser.vala:2933
+#: vala/valaparser.vala:2959
+msgid "only one of `static' or `class' may be specified"
+msgstr ""
+
+#: vala/valaparser.vala:2631
+msgid "accessibility of struct fields can only be `public`"
+msgstr ""
+
+#: vala/valaparser.vala:2718
+#, c-format
+msgid ""
+"the modifiers `abstract', `virtual', and `override' are not valid for %s "
+"methods"
+msgstr ""
+
+#: vala/valaparser.vala:2769
+msgid "deprecated syntax, use `owned` modifier before `get'"
+msgstr ""
+
+#: vala/valaparser.vala:2813
+msgid "properties throwing errors are not supported yet"
+msgstr ""
+
+#: vala/valaparser.vala:2819
+msgid "property default value already defined"
+msgstr ""
+
+#: vala/valaparser.vala:2837
+msgid "property getters are `unowned' by default"
+msgstr ""
+
+#: vala/valaparser.vala:2867
+msgid "expected `get', `set' or `construct'"
+msgstr ""
+
+#: vala/valaparser.vala:2929
+msgid "`new' modifier not allowed on constructor"
+msgstr ""
+
+#: vala/valaparser.vala:2952
+msgid "`new' modifier not allowed on destructor"
+msgstr ""
+
+#: vala/valaparser.vala:2956
+msgid "destructor and parent symbol name do not match"
+msgstr ""
+
+#: vala/valaparser.vala:3300
+msgid "`new' modifier not allowed on creation method"
+msgstr ""
+
+#: vala/valaparser.vala:3314
+msgid ""
+"abstract, virtual, and override modifiers are not applicable to creation "
+"methods"
+msgstr ""
+
+#: vala/valaparser.vala:3370
+msgid "deprecated syntax, use [CCode (has_target = false)]"
+msgstr ""
+
+#: vala/valaparser.vala:3379
+msgid "Delegates without definition must be external"
+msgstr ""
+
+#: vala/valapointerindirection.vala:95 vala/valapointerindirection.vala:101
+msgid "Pointer indirection not supported for this expression"
+msgstr ""
+
+#: vala/valapostfixexpression.vala:109 vala/valapostfixexpression.vala:131
+#: vala/valapostfixexpression.vala:136
+msgid "unsupported lvalue in postfix expression"
+msgstr ""
+
+#: vala/valapropertyaccessor.vala:183
+#, c-format
+msgid ""
+"Property `%s' with private accessor cannot be marked as abstract, virtual or "
+"override"
+msgstr ""
+
+#: vala/valapropertyaccessor.vala:189
+#, c-format
+msgid "Accessor of abstract property `%s' cannot have body"
+msgstr ""
+
+#: vala/valaproperty.vala:110
+msgid "Property getter must have a body"
+msgstr ""
+
+#: vala/valaproperty.vala:112
+msgid "Property setter must have a body"
+msgstr ""
+
+#: vala/valaproperty.vala:368 vala/valaproperty.vala:393
+#, c-format
+msgid ""
+"Type and/or accessors of overriding property `%s' do not match overridden "
+"property `%s': %s."
+msgstr ""
+
+#: vala/valaproperty.vala:416
+msgid ""
+"Abstract and virtual properties may not be declared in derived compact "
+"classes"
+msgstr ""
+
+#: vala/valaproperty.vala:426
+msgid "Abstract properties may not be declared in non-abstract classes"
+msgstr ""
+
+#: vala/valaproperty.vala:431
+msgid ""
+"Abstract properties may not be declared outside of classes and interfaces"
+msgstr ""
+
+#: vala/valaproperty.vala:437
+msgid ""
+"Virtual properties may not be declared outside of classes and interfaces"
+msgstr ""
+
+#: vala/valaproperty.vala:443
+msgid "Properties may not be overridden outside of classes"
+msgstr ""
+
+#: vala/valaproperty.vala:449
+msgid ""
+"Protected properties may not be declared outside of classes and interfaces"
+msgstr ""
+
+#: vala/valaproperty.vala:464
+msgid "'void' not supported as property type"
+msgstr ""
+
+#: vala/valaproperty.vala:472
+#, c-format
+msgid "Property `%s' must have a `get' accessor and/or a `set' mutator"
+msgstr ""
+
+#: vala/valaproperty.vala:485
+#, c-format
+msgid ""
+"Property `%s' with custom `get' accessor and/or `set' mutator cannot have "
+"`default' value"
+msgstr ""
+
+#: vala/valaproperty.vala:496
+#, c-format
+msgid "property type `%s` is less accessible than property `%s`"
+msgstr ""
+
+#: vala/valaproperty.vala:500
+#, c-format
+msgid "%s: no suitable property found to override"
+msgstr ""
+
+#: vala/valaproperty.vala:504
+#, c-format
+msgid ""
+"%s hides inherited property `%s'. Use the `new' keyword if hiding was "
+"intentional"
+msgstr ""
+
+#: vala/valaproperty.vala:511
+#, c-format
+msgid "%s: construct properties must be public"
+msgstr ""
+
+#: vala/valareferencetransferexpression.vala:97
+msgid "Reference transfer not supported for this expression"
+msgstr ""
+
+#: vala/valareferencetransferexpression.vala:106
+msgid "No reference to be transferred"
+msgstr ""
+
+#: vala/valaregexliteral.vala:77
+#, c-format
+msgid "Invalid regular expression `%s'."
+msgstr ""
+
+#: vala/valareturnstatement.vala:92
+msgid "Return not allowed in this context"
+msgstr ""
+
+#: vala/valareturnstatement.vala:99
+msgid "Return without value in non-void function"
+msgstr ""
+
+#: vala/valareturnstatement.vala:105
+msgid "Return with value in void function"
+msgstr ""
+
+#: vala/valareturnstatement.vala:111
+msgid "Invalid expression in return value"
+msgstr ""
+
+#: vala/valareturnstatement.vala:117
+#, c-format
+msgid "Return: Cannot convert from `%s' to `%s'"
+msgstr ""
+
+#: vala/valareturnstatement.vala:124
+msgid ""
+"Return value transfers ownership but method return type hasn't been declared "
+"to transfer ownership"
+msgstr ""
+
+#: vala/valareturnstatement.vala:132
+msgid ""
+"Local variable with strong reference used as return value and method return "
+"type has not been declared to transfer ownership"
+msgstr ""
+
+#: vala/valareturnstatement.vala:138
+#, c-format
+msgid "`null' incompatible with return type `%s`"
+msgstr ""
+
+#: vala/valascanner.vala:226 vala/valascanner.vala:725
+#: vala/valascanner.vala:1160
+msgid "\\u requires four hex digits"
+msgstr ""
+
+#: vala/valascanner.vala:239 vala/valascanner.vala:738
+#: vala/valascanner.vala:1173
+msgid "\\x requires at least one hex digit"
+msgstr ""
+
+#: vala/valascope.vala:65
+#, c-format
+msgid "The root namespace already contains a definition for `%s'"
+msgstr ""
+
+#: vala/valascope.vala:67
+#, c-format
+msgid "`%s' already contains a definition for `%s'"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:435
+#, c-format
+msgid "%d missing arguments for `%s'"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:437
+#, c-format
+msgid "Too few arguments, method `%s' does not take %d arguments"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:472
+#, c-format
+msgid "%d extra arguments for `%s'"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:474
+#, c-format
+msgid "Too many arguments, method `%s' does not take %d arguments"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:494
+msgid "Named arguments are not supported yet"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:499 vala/valasemanticanalyzer.vala:606
+#, c-format
+msgid "Invalid type for argument %d"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:518
+#, c-format
+msgid "Argument %d: Cannot pass null to reference parameter"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:521
+#, c-format
+msgid "Argument %d: Cannot pass null to non-null parameter type"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:525
+#, c-format
+msgid "Argument %d: Cannot pass value to reference or output parameter"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:530
+#, c-format
+msgid "Argument %d: Cannot pass ref argument to non-reference parameter"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:538
+#, c-format
+msgid ""
+"Argument %d: Cannot pass unowned ref argument to owned reference parameter"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:547
+#, c-format
+msgid ""
+"Argument %d: Cannot pass owned ref argument to unowned reference parameter"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:553
+#, c-format
+msgid "Argument %d: Cannot pass out argument to non-output parameter"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:571 vala/valasemanticanalyzer.vala:576
+#: vala/valasemanticanalyzer.vala:611
+#, c-format
+msgid "Argument %d: Cannot convert from `%s' to `%s'"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:601
+msgid "Cannot pass signals as arguments"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:728
+msgid "Too few arguments for specified format"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:734
+msgid "Too many arguments for specified format"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:843
+#, c-format
+msgid "The type-parameter `%s' is missing"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:935
+#, c-format
+msgid "Invalid member `%s' in `%s'"
+msgstr ""
+
+#: vala/valasemanticanalyzer.vala:964
+#, c-format
+msgid "Invalid type for member `%s'"
+msgstr ""
+
+#: vala/valasignal.vala:198
+msgid "Signals with variable argument lists are not supported"
+msgstr ""
+
+#: vala/valasignal.vala:206
+msgid "Only virtual signals can have a default signal handler body"
+msgstr ""
+
+#: vala/valasignal.vala:261
+#, c-format
+msgid ""
+"%s hides inherited signal `%s'. Use the `new' keyword if hiding was "
+"intentional"
+msgstr ""
+
+#: vala/valasliceexpression.vala:140
+msgid "Slice expressions cannot be used as lvalue"
+msgstr ""
+
+#: vala/valastruct.vala:497
+#, c-format
+msgid "The base type `%s` of struct `%s` is not a struct"
+msgstr ""
+
+#: vala/valastruct.vala:511
+msgid "Recursive value types are not allowed"
+msgstr ""
+
+#: vala/valastruct.vala:517
+msgid "Instance field initializers not supported"
+msgstr ""
+
+#: vala/valastruct.vala:537
+#, c-format
+msgid "structs cannot be empty: %s"
+msgstr ""
+
+#: vala/valastruct.vala:542
+msgid "derived structs may not have instance fields"
+msgstr ""
+
+#: vala/valaswitchlabel.vala:91
+msgid "Expression must be constant"
+msgstr ""
+
+#: vala/valaswitchstatement.vala:112
+msgid "Integer or string expression expected"
+msgstr ""
+
+#: vala/valaswitchstatement.vala:139
+msgid "Switch statement already contains this label"
+msgstr ""
+
+#: vala/valasymbolresolver.vala:69
+#, c-format
+msgid "%s: Classes cannot have multiple base classes (`%s' and `%s')"
+msgstr ""
+
+#: vala/valasymbolresolver.vala:75
+#, c-format
+msgid "Base class cycle (`%s' and `%s')"
+msgstr ""
+
+#: vala/valasymbolresolver.vala:94
+#, c-format
+msgid "Base struct cycle (`%s' and `%s')"
+msgstr ""
+
+#: vala/valasymbolresolver.vala:111
+#, c-format
+msgid "Prerequisite cycle (`%s' and `%s')"
+msgstr ""
+
+#: vala/valasymbolresolver.vala:209
+#, c-format
+msgid "The namespace name `%s' could not be found"
+msgstr ""
+
+#: vala/valasymbolresolver.vala:260
+#, c-format
+msgid "The symbol `%s' could not be found"
+msgstr ""
+
+#: vala/valasymbolresolver.vala:314
+#, c-format
+msgid "The type name `%s' could not be found"
+msgstr ""
+
+#: vala/valasymbolresolver.vala:346
+#, c-format
+msgid "`%s' is not a type"
+msgstr ""
+
+#: vala/valasymbol.vala:421 vala/valasymbol.vala:425 vala/valasymbol.vala:429
+#: vala/valasymbol.vala:433 vala/valasymbol.vala:437 vala/valasymbol.vala:441
+#: vala/valasymbol.vala:445 vala/valasymbol.vala:449 vala/valasymbol.vala:453
+#: vala/valasymbol.vala:457 vala/valasymbol.vala:461 vala/valasymbol.vala:465
+#: vala/valasymbol.vala:469 vala/valasymbol.vala:473
+msgid "unexpected declaration"
+msgstr ""
+
+#: vala/valathrowstatement.vala:92
+msgid "invalid error expression"
+msgstr ""
+
+#: vala/valathrowstatement.vala:98
+#, c-format
+msgid "`%s' is not an error type"
+msgstr ""
+
+#: vala/valatuple.vala:74
+msgid "tuples are not supported"
+msgstr ""
+
+#: vala/valatypecheck.vala:120
+msgid "Type argument list has no effect"
+msgstr ""
+
+#: vala/valatypeofexpression.vala:86
+msgid "Type argument list without effect"
+msgstr ""
+
+#: vala/valaunaryexpression.vala:183 vala/valaunaryexpression.vala:192
+#: vala/valaunaryexpression.vala:201 vala/valaunaryexpression.vala:211
+#, c-format
+msgid "Operator not supported for `%s'"
+msgstr ""
+
+#: vala/valaunaryexpression.vala:218
+msgid "Prefix operators not supported for this expression"
+msgstr ""
+
+#: vala/valaunaryexpression.vala:240
+msgid ""
+"ref and out method arguments can only be used with fields, parameters, local "
+"variables, and array element access"
+msgstr ""
+
+#: vala/valaunresolvedsymbol.vala:52
+msgid "Type reference must be simple name or member access expression"
+msgstr ""
+
+#: vala/valausedattr.vala:137
+#, c-format
+msgid "attribute `%s' never used"
+msgstr ""
+
+#: vala/valausedattr.vala:141
+#, c-format
+msgid "argument `%s' never used"
+msgstr ""
+
+#: vala/valaversionattribute.vala:168
+#, c-format
+msgid "%s is not available in %s %s. Use %s >= %s"
+msgstr ""
