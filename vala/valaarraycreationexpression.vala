@@ -235,7 +235,7 @@ public class Vala.ArrayCreationExpression : Expression {
 			if (initlist == null) {
 				error = true;
 				/* this is an internal error because it is already handeld by the parser */
-				Report.error (source_reference, _("internal error: initializer list expected"));
+				Report.error (source_reference, "internal error: initializer list expected");
 			} else {
 				foreach (Expression size in calc_sizes) {
 					append_size (size);

@@ -566,7 +566,7 @@ public class Vala.MemberAccess : Expression {
 			var block = c.parent_symbol as Block;
 			if (block != null && context.analyzer.find_parent_method_or_property_accessor (block) != context.analyzer.current_method_or_property_accessor) {
 				error = true;
-				Report.error (source_reference, _("internal error: accessing local constants of outer methods is not supported yet"));
+				Report.error (source_reference, "internal error: accessing local constants of outer methods is not supported yet");
 				return false;
 			}
 		} else if (member is Method) {

@@ -85,7 +85,7 @@ public class Vala.PointerIndirection : Expression {
 		}
 		if (inner.value_type == null) {
 			error = true;
-			Report.error (source_reference, _("internal error: unknown type of inner expression"));
+			Report.error (source_reference, "internal error: unknown type of inner expression");
 			return false;
 		}
 		if (inner.value_type is PointerType) {

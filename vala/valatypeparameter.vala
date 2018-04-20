@@ -51,7 +51,7 @@ public class Vala.TypeParameter : Symbol {
 	public bool equals (TypeParameter param2) {
 		/* only type parameters with a common scope are comparable */
 		if (!owner.is_subscope_of (param2.owner) && !param2.owner.is_subscope_of (owner)) {
-			Report.error (source_reference, _("internal error: comparing type parameters from different scopes"));
+			Report.error (source_reference, "internal error: comparing type parameters from different scopes");
 			return false;
 		}
 

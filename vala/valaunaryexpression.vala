@@ -242,7 +242,7 @@ public class Vala.UnaryExpression : Expression {
 			}
 		} else {
 			error = true;
-			Report.error (source_reference, _("internal error: unsupported unary operator"));
+			Report.error (source_reference, "internal error: unsupported unary operator");
 			return false;
 		}
 

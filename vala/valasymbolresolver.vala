@@ -339,7 +339,7 @@ public class Vala.SymbolResolver : CodeVisitor {
 			} else if (sym is ErrorCode) {
 				type = new ErrorType ((ErrorDomain) sym.parent_symbol, (ErrorCode) sym, unresolved_type.source_reference);
 			} else {
-				Report.error (unresolved_type.source_reference, _("internal error: `%s' is not a supported type").printf (sym.get_full_name ()));
+				Report.error (unresolved_type.source_reference, "internal error: `%s' is not a supported type".printf (sym.get_full_name ()));
 				return new InvalidType ();
 			}
 		} else {

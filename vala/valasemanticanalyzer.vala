@@ -362,7 +362,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 		} else if (sym is ErrorCode) {
 			type = new ErrorType ((ErrorDomain) sym.parent_symbol, (ErrorCode) sym);
 		} else {
-			Report.error (null, _("internal error: `%s' is not a supported type").printf (sym.get_full_name ()));
+			Report.error (null, "internal error: `%s' is not a supported type".printf (sym.get_full_name ()));
 			return new InvalidType ();
 		}
 
@@ -852,7 +852,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 					param_index = instance_type.data_type.get_type_parameter_index (generic_type.type_parameter.name);
 				}
 				if (param_index == -1) {
-					Report.error (node_reference.source_reference, _("internal error: unknown type parameter %s").printf (generic_type.type_parameter.name));
+					Report.error (node_reference.source_reference, "internal error: unknown type parameter %s".printf (generic_type.type_parameter.name));
 					node_reference.error = true;
 					return new InvalidType ();
 				}
@@ -867,7 +867,7 @@ public class Vala.SemanticAnalyzer : CodeVisitor {
 
 			int param_index = m.get_type_parameter_index (generic_type.type_parameter.name);
 			if (param_index == -1) {
-				Report.error (node_reference.source_reference, _("internal error: unknown type parameter %s").printf (generic_type.type_parameter.name));
+				Report.error (node_reference.source_reference, "internal error: unknown type parameter %s".printf (generic_type.type_parameter.name));
 				node_reference.error = true;
 				return new InvalidType ();
 			}
