@@ -1006,4 +1006,3 @@ public class Vala.CCodeMethodCallModule : CCodeAssignmentModule {
 		return "string_printf";
 	}
 }
-

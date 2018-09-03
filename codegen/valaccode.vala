@@ -62,6 +62,8 @@ namespace Vala {
 			} else if (sym is ErrorCode) {
 				return get_ccode_name (sym).down ();
 			} else {
+				// MANGLER SELECTION GOES HERE
+				print(typeof(sym.name()) + "\n");
 				return "%s%s%s".printf (get_ccode_lower_case_prefix (sym.parent_symbol), infix, get_ccode_lower_case_suffix (sym));
 			}
 		} else if (node is ErrorType) {

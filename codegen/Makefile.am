@@ -50,6 +50,7 @@ libvalaccodegen_la_VALASOURCES = \
 	valagtypemodule.vala \
 	valagvariantmodule.vala \
 	valainterfaceregisterfunction.vala \
+	valamangler.vala \
 	valastructregisterfunction.vala \
 	valatyperegisterfunction.vala \
 	$(NULL)
