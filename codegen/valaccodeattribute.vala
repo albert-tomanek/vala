@@ -19,7 +19,7 @@
  * Author:
  * 	Luca Bruno <lucabru@src.gnome.org>
  */
-
+int i=0;
 
 /**
  * Cache for the CCode attribute
@@ -34,9 +34,11 @@ public class Vala.CCodeAttribute : AttributeCache {
 			if (_name == null) {
 				if (ccode != null) {
 					_name = ccode.get_string ("cname");
+					print("\tcname(%s)\t", _name);
 				}
 				if (_name == null) {
 					_name = get_default_name ();
+					if ("int"in _name)print(_name+"\t"+i.to_string()+"\n");
 				}
 			}
 			return _name;
@@ -68,6 +70,20 @@ public class Vala.CCodeAttribute : AttributeCache {
 				}
 			}
 			return _type_name;
+		}
+	}
+
+	public Linkage linkage {
+		get {
+			if (_linkage == null) {
+				if (ccode != null) {
+					_linkage = Linkage.parse (ccode.get_string ("linkage"));
+				}
+				if (_linkage == null) {
+					_linkage = Linkage.GOBJECT;	// This is the default.
+				}
+			}
+			return _linkage;
 		}
 	}
 
@@ -559,6 +575,7 @@ public class Vala.CCodeAttribute : AttributeCache {
 	private string _name;
 	private string _const_name;
 	private string _type_name;
+	private Linkage? _linkage;
 	private string _feature_test_macros;
 	private string _header_filenames;
 	private string _prefix;
@@ -622,72 +639,38 @@ public class Vala.CCodeAttribute : AttributeCache {
 		}
 	}
 
-	private string get_default_name () {
+	private string get_default_name () {i=-1;
 		if (sym != null) {
-			if (sym is Constant && !(sym is EnumValue)) {
-				if (sym.parent_symbol is Block) {
-					// local constant
-					return sym.name;
-				}
-				return "%s%s".printf (get_ccode_lower_case_prefix (sym.parent_symbol).ascii_up (), sym.name);
-			} else if (sym is Field) {
-				var cname = sym.name;
-				if (((Field) sym).binding == MemberBinding.STATIC) {
-					cname = "%s%s".printf (get_ccode_lower_case_prefix (sym.parent_symbol), sym.name);
-				}
-				if (cname[0].isdigit ()) {
-					Report.error (node.source_reference, "Field name starts with a digit. Use the `cname' attribute to provide a valid C name if intended");
-					return "";
-				}
-				return cname;
-			} else if (sym is CreationMethod) {
-				unowned CreationMethod m = (CreationMethod) sym;
-				string infix;
-				if (m.parent_symbol is Struct) {
-					infix = "init";
-				} else {
-					infix = "new";
-				}
-				if (m.name == ".new") {
-					return "%s%s".printf (get_ccode_lower_case_prefix (m.parent_symbol), infix);
-				} else {
-					return "%s%s_%s".printf (get_ccode_lower_case_prefix (m.parent_symbol), infix, m.name);
-				}
-			} else if (sym is DynamicMethod) {
-				return "_dynamic_%s%d".printf (sym.name, dynamic_method_id++);
-			} else if (sym is Method) {
-				unowned Method m = (Method) sym;
-				if (m.is_async_callback) {
-					return "%s_co".printf (get_ccode_real_name ((Method) m.parent_symbol));
-				}
-				if (m.signal_reference != null) {
-					return "%s%s".printf (get_ccode_lower_case_prefix (m.parent_symbol), get_ccode_lower_case_name (m.signal_reference));
-				}
-				if (sym.name == "main" && sym.parent_symbol.name == null) {
-					// avoid conflict with generated main function
-					return "_vala_main";
-				} else if (sym.name.has_prefix ("_")) {
-					return "_%s%s".printf (get_ccode_lower_case_prefix (sym.parent_symbol), sym.name.substring (1));
-				} else {
-					return "%s%s".printf (get_ccode_lower_case_prefix (sym.parent_symbol), sym.name);
-				}
-			} else if (sym is PropertyAccessor) {
-				unowned PropertyAccessor acc = (PropertyAccessor) sym;
-				var t = (TypeSymbol) acc.prop.parent_symbol;
+			/* If it's a symbol, mangle it according to its specified linkage. */
+			Mangler mangler = Mangler.for_linkage(linkage);
 
-				if (acc.readable) {
-					return "%sget_%s".printf (get_ccode_lower_case_prefix (t), acc.prop.name);
-				} else {
-					return "%sset_%s".printf (get_ccode_lower_case_prefix (t), acc.prop.name);
+			try {
+				if (sym is Constant && !(sym is EnumValue)) {i=0;
+					return mangler.mangle_constant ((Constant) sym);
+				} else if (sym is Field) {i=1;
+					return mangler.mangle_field ((Field) sym);
+				} else if (sym is CreationMethod) {i=2;
+					return mangler.mangle_creation_method ((CreationMethod) sym);
+				} else if (sym is DynamicMethod) {i=3;
+					return mangler.mangle_dynamic_method ((DynamicMethod) sym, ref dynamic_method_id);
+				} else if (sym is Method) {i=4;
+					return mangler.mangle_method ((Method) sym);
+				} else if (sym is PropertyAccessor) {i=4;
+					return mangler.mangle_property_accessor ((PropertyAccessor) sym);
+				} else if (sym is Signal) {i=6;
+					return mangler.mangle_signal ((Signal) sym);
+				} else if (sym is LocalVariable) {i=7;
+					return mangler.mangle_local_variable ((LocalVariable) sym);
+				} else if (sym is Parameter) {i=8;
+					return mangler.mangle_parameter ((Parameter) sym);
+				} else {i=9;
+					return "%s%s".printf (get_ccode_prefix (sym.parent_symbol), sym.name);
 				}
-			} else if (sym is Signal) {
-				return Symbol.camel_case_to_lower_case (sym.name).replace ("_", "-");;
-			} else if (sym is LocalVariable || sym is Parameter) {
-				return sym.name;
-			} else {
-				return "%s%s".printf (get_ccode_prefix (sym.parent_symbol), sym.name);
+			} catch (ManglerError err) {
+				Report.error (node.source_reference, err.message);
+				return "";
 			}
-		} else if (node is ObjectType) {
+		} else if (node is ObjectType) {i=9;
 			var type = (ObjectType) node;
 
 			string cname;
@@ -697,7 +680,7 @@ public class Vala.CCodeAttribute : AttributeCache {
 				cname = get_ccode_name (type.type_symbol);
 			}
 			return "%s*".printf (cname);
-		} else if (node is ArrayType) {
+		} else if (node is ArrayType) {i=10;
 			var type = (ArrayType) node;
 			var cname = get_ccode_name (type.element_type);
 			if (type.inline_allocated) {
@@ -705,12 +688,12 @@ public class Vala.CCodeAttribute : AttributeCache {
 			} else {
 				return "%s*".printf (cname);
 			}
-		} else if (node is DelegateType) {
+		} else if (node is DelegateType) {i=11;
 			var type = (DelegateType) node;
 			return get_ccode_name (type.delegate_symbol);
-		} else if (node is ErrorType) {
+		} else if (node is ErrorType) {i=12;
 			return "GError*";
-		} else if (node is GenericType) {
+		} else if (node is GenericType) {i=13;
 			var type = (GenericType) node;
 			if (type.value_owned) {
 				if (CodeContext.get ().profile == Profile.GOBJECT) {
@@ -725,34 +708,34 @@ public class Vala.CCodeAttribute : AttributeCache {
 					return "const void *";
 				}
 			}
-		} else if (node is MethodType) {
+		} else if (node is MethodType) {i=14;
 			if (CodeContext.get ().profile == Profile.GOBJECT) {
 				return "gpointer";
 			} else {
 				return "void *";
 			}
-		} else if (node is NullType) {
+		} else if (node is NullType) {i=15;
 			if (CodeContext.get ().profile == Profile.GOBJECT) {
 				return "gpointer";
 			} else {
 				return "void *";
 			}
-		} else if (node is PointerType) {
+		} else if (node is PointerType) {i=16;
 			var type = (PointerType) node;
 			if (type.base_type.data_type != null && type.base_type.data_type.is_reference_type ()) {
 				return get_ccode_name (type.base_type);
 			} else {
 				return "%s*".printf (get_ccode_name (type.base_type));
 			}
-		} else if (node is VoidType) {
+		} else if (node is VoidType) {i=17;
 			return "void";
-		} else if (node is ClassType) {
+		} else if (node is ClassType) {i=18;
 			var type = (ClassType) node;
 			return "%sClass*".printf (get_ccode_name (type.class_symbol));
-		} else if (node is InterfaceType) {
+		} else if (node is InterfaceType) {i=19;
 			var type = (InterfaceType) node;
 			return "%s*".printf (get_ccode_type_name (type.interface_symbol));
-		} else if (node is ValueType) {
+		} else if (node is ValueType) {i=20;
 			var type = (ValueType) node;
 			var cname = get_ccode_name (type.type_symbol);
 			if (type.nullable) {
@@ -760,9 +743,9 @@ public class Vala.CCodeAttribute : AttributeCache {
 			} else {
 				return cname;
 			}
-		} else if (node is CType) {
+		} else if (node is CType) {i=21;
 			return ((CType) node).ctype_name;
-		} else {
+		} else {i=22;
 			Report.error (node.source_reference, "Unresolved type reference");
 			return "";
 		}

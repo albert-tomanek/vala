@@ -30,7 +30,7 @@ public class Vala.UsedAttr : CodeVisitor {
 	public Vala.Map<string,Vala.Set<string>> marked = new HashMap<string,Vala.Set<string>> (str_hash, str_equal);
 
 	const string[] valac_default_attrs = {
-		"CCode", "type_signature", "default_value", "set_value_function", "type_id", "cprefix", "cheader_filename",
+		"CCode", "type_signature", "default_value", "set_value_function", "type_id", "linkage", "cprefix", "cheader_filename",
 		"marshaller_type_name", "get_value_function", "cname", "destroy_function", "lvalue_access",
 		"has_type_id", "instance_pos", "const_cname", "take_value_function", "copy_function", "free_function",
 		"param_spec_function", "has_target", "has_typedef", "type_cname", "ref_function", "ref_function_void", "unref_function", "type",

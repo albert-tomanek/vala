@@ -63,8 +63,13 @@ namespace Vala {
 				return get_ccode_name (sym).down ();
 			} else {
 				// MANGLER SELECTION GOES HERE
-				print(typeof(sym.name()) + "\n");
-				return "%s%s%s".printf (get_ccode_lower_case_prefix (sym.parent_symbol), infix, get_ccode_lower_case_suffix (sym));
+				string ret = "%s%s%s".printf (get_ccode_lower_case_prefix (sym.parent_symbol), infix, get_ccode_lower_case_suffix (sym));
+				// print(ret);
+				// if (sym is Subroutine)
+				// 	print("\t" + (new Manglers.CppMangler()).mangle_subroutine(sym as ));
+				// print("\n");
+				return ret;	// ./valac class1.vala --vapidir=../vapi/
+				//return "%s%s%s".printf (get_ccode_lower_case_prefix (sym.parent_symbol), infix, get_ccode_lower_case_suffix (sym));
 			}
 		} else if (node is ErrorType) {
 			unowned ErrorType type = (ErrorType) node;

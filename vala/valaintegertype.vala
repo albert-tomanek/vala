@@ -26,8 +26,8 @@ using GLib;
  * An integer type.
  */
 public class Vala.IntegerType : ValueType {
-	string? literal_value;
-	string? literal_type_name;
+	public string? literal_value;
+	public string? literal_type_name;	// Needed by Mangler.mangle_datatype to mangle the correct integer size
 
 	public IntegerType (Struct type_symbol, string? literal_value = null, string? literal_type_name = null) {
 		base (type_symbol);
